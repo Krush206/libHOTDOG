@@ -1,10 +1,5 @@
 include ../common.mk
 
-CFLAGS = -I. -I.. -I../lib -I../linux \
-	 -I/usr/GNUstep/Local/Library/Headers \
-	 -fconstant-string-class=NSConstantString \
-	 -std=c99 -DBUILD_FOR_LINUX=1 -DBUILD_FOUNDATION=1
-
 SRC = calendar-CalendarInterface.m \
       contacts-ContactDetailInterface.m \
       contacts-ContactListInterface.m \

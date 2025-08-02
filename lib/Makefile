@@ -1,10 +1,5 @@
 include ../common.mk
 
-CFLAGS = -I. -I.. -I../objects -I../linux \
-	 -I/usr/GNUstep/Local/Library/Headers \
-	 -fconstant-string-class=NSConstantString \
-	 -std=c99 -DBUILD_FOR_LINUX=1 -DBUILD_FOUNDATION=1
-
 SRC = graphics-ataristfont.m \
       graphics-c64font.m \
       graphics-cards.m \

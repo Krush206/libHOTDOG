@@ -1,10 +1,5 @@
 include ../common.mk
 
-CFLAGS = -I. -I.. -I../objects -I../lib \
-	 -I/usr/GNUstep/Local/Library/Headers \
-	 -fconstant-string-class=NSConstantString \
-	 -std=c99 -DBUILD_FOR_LINUX=1 -DBUILD_FOUNDATION=1
-
 SRC = foundation-.m \
       foundation-printf.m \
       foundation-qsort_r.m \
