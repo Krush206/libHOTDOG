@@ -197,6 +197,7 @@ SRC = calendar-CalendarInterface.m \
 OBJ = $(SRC:.m=.o)
 
 all: $(OBJ)
+	$(LD) -r -o ./objects.o ./*.o
 
 %.o: %.m
 	$(CC) -c $(CFLAGS) $(OPT) $<

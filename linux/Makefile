@@ -14,6 +14,7 @@ SRC = foundation-.m \
 OBJ = $(SRC:.m=.o)
 
 all: $(OBJ)
+	$(LD) -r -o ./linux.o ./*.o
 
 %.o: %.m
 	$(CC) -c $(CFLAGS) $(OPT) $<
