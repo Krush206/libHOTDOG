@@ -1,6 +1,7 @@
 include ../common.mk
 
 SRC = foundation-.m \
+      foundation-main.m \
       foundation-printf.m \
       foundation-qsort_r.m \
       linux-audio.m \
@@ -14,7 +15,6 @@ SRC = foundation-.m \
 OBJ = $(SRC:.m=.o)
 
 all: $(OBJ)
-	$(LD) -r -o ./linux.o ./*.o
 
 %.o: %.m
 	$(CC) -c $(CFLAGS) $(OPT) $<

@@ -38,7 +38,6 @@ SRC = graphics-ataristfont.m \
 OBJ = $(SRC:.m=.o)
 
 all: $(OBJ)
-	$(LD) -r -o ./lib.o ./*.o
 
 %.o: %.m
 	$(CC) -c $(CFLAGS) $(OPT) $<
