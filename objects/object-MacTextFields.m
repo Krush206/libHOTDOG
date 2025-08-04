@@ -319,31 +319,6 @@ static void drawAlertBorderInBitmap_rect_(id bitmap, Int4 r)
 }
 @end
 
-@interface MacTextFields : IvarObject
-{
-    id _text;
-    id _fields;
-    id _buffers;
-    id _readonly;
-    int _cursorBlink;
-    int _cursorPos;
-    int _currentField;
-    int _returnKeyDown;
-
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _hidden;
-
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation MacTextFields
 - (id)init
 {

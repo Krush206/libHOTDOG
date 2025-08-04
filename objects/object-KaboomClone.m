@@ -319,23 +319,6 @@ static char *bomb3Pixels =
 ".......OOOO.......\n"
 ;
 
-@interface KaboomClone : IvarObject
-{
-    int _iteration;
-    int _width;
-    int _height;
-    int _madBomberX;
-    int _madBomberY;
-    id _bombs;
-    int _bucketX;
-    int _bucketY;
-    int _score;
-    int _splash;
-    int _droppingBombs;
-    int _bombsExploding;
-    id _bitmap;
-}
-@end
 
 @implementation KaboomClone
 

@@ -113,15 +113,6 @@
 
 @end
 
-@interface CSVParser : IvarObject
-{
-    id _rows;
-    id _cells;
-    id _current;
-    BOOL _stringIsQuoted;
-    char *_p;
-}
-@end
 @implementation CSVParser
 - (id)convertCStringToObject:(char *)cstring
 {

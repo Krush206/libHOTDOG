@@ -193,31 +193,6 @@ static char *centipedePixels[8] = {
 
 #define MAX_CENTIPEDE 20
 
-@interface CentipedeClone : IvarObject
-{
-    int _mouseDown;
-    int _mushroomGridWidth;
-    int _mushroomGridHeight;
-    char *_mushroomGrid;
-    int _centipedeX[MAX_CENTIPEDE];
-    int _centipedeY[MAX_CENTIPEDE];
-    int _centipedeDeltaX[MAX_CENTIPEDE];
-    int _centipedeDeltaY[MAX_CENTIPEDE];
-    int _centipedeTurn[MAX_CENTIPEDE];
-    int _playerDead;
-    int _iteration;
-    int _width;
-    int _height;
-    int _score;
-    int _flash;
-    int _playerX;
-    int _playerY;
-    int _bulletX;
-    int _bulletY;
-    int _bulletDeltaY;
-    id _bitmap;
-}
-@end
 
 @implementation CentipedeClone
 

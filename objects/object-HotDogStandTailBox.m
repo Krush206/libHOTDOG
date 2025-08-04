@@ -522,22 +522,6 @@ static char *textBorderRightPixels =
     return obj;
 }
 @end
-@interface HotDogStandTailBox : IvarObject
-{
-    id _path;
-    time_t _timestamp;
-    id _text;
-    id _fileText;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    char _focus;
-}
-@end
 @implementation HotDogStandTailBox
 - (id)init
 {

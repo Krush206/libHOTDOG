@@ -108,17 +108,6 @@ static unsigned char *button_right =
 @end
 
 
-@interface MacAboutThisComputer : IvarObject
-{
-    Int4 _rect[MAX_BUTTONS];
-    id _array;
-    id _result;
-    int _fixedWidth;
-    int _selected;
-    char _buttonDown;
-    char _buttonHover;
-}
-@end
 @implementation MacAboutThisComputer
 - (void)beginIteration:(id)event rect:(Int4)r
 {

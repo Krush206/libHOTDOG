@@ -159,33 +159,6 @@ static int monthNameAsInt(id str)
 
 
 
-@interface CalendarInterface : IvarObject
-{
-    time_t _timestamp;
-    int _seconds;
-    Int4 _rect[MAX_RECT];
-    id _buttons;
-    int _buttonDown;
-    int _buttonHover;
-    int _scrollY;
-
-    BOOL _disableEvents;
-    id _eventsArray;
-    id _calendarArray;
-
-    id _bitmap;
-    Int4 _r;
-    int _cursorY;
-
-    int _numberOfColumns;
-    int _year;
-    int _pendingScrollToIndex;
-
-    int _currentYear;
-    int _currentMonth;
-    int _currentDay;
-}
-@end
 @implementation CalendarInterface
 - (id)contextualMenu
 {

@@ -25,26 +25,6 @@
 
 #import "HOTDOG.h"
 
-@interface AtariSTMenuBar : IvarObject
-{
-    id _configPath;
-    time_t _configTimestamp;
-    int _flashIteration;
-    int _flashIndex;
-    BOOL _buttonDown;
-    id _selectedDict;
-    id _menuDict;
-    id _array;
-
-    int _pixelScaling;
-    id _scaledFont;
-
-    unsigned long _appMenuWindow;
-    int _appMenuWindowX;
-    int _appMenuWindowY;
-    unsigned long _menuWindowWaitForUnmapNotify;
-}
-@end
 
 @implementation AtariSTMenuBar
 

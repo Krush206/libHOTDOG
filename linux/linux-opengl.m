@@ -230,11 +230,6 @@ static int      dblBuf[] = {    GLX_RGBA,
 
 @end
 
-@interface GLTexture : IvarObject
-{
-    GLuint _textureID;
-}
-@end
 @implementation GLTexture
 - (void)dealloc
 {

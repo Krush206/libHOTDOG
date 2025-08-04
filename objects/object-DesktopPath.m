@@ -50,11 +50,6 @@ NSLog(@"unable to copy '%@' to '%@'", srcpath, dstpath);
 }
 @end
 
-@interface DesktopPath : IvarObject
-{
-    time_t _desktopPathTimestamp;
-}
-@end
 @implementation DesktopPath
 - (void)handleBackgroundUpdate:(id)event
 {

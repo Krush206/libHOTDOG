@@ -1333,32 +1333,6 @@ static id _dialogText =
 @end
 
 
-@interface MessagesPlaceholder : IvarObject
-{
-    id _array;
-    Int4 _rect[MAX_RECT];
-    id _buttons;
-    id _buttonDicts;
-    char _buttonType[MAX_RECT];
-    int _buttonDown;
-    int _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownOffsetX;
-    int _buttonDownOffsetY;
-    int _buttonDownMinKnobX;
-    int _buttonDownMaxKnobX;
-    double _buttonDownKnobPct;
-    int _scrollY;
-
-    id _bitmap;
-    Int4 _r;
-    int _cursorY;
-
-    id _buttonRightMouseDownMessage;
-    id _navigationRightMouseDownMessage;
-}
-@end
 @implementation MessagesPlaceholder
 
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r

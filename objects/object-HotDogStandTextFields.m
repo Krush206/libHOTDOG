@@ -524,27 +524,6 @@ static char *textBorderRightPixels =
 }
 @end
 
-@interface HotDogStandTextFields : IvarObject
-{
-    id _text;
-    id _fields;
-    id _buffers;
-    id _readonly;
-    int _cursorBlink;
-    int _cursorPos;
-    int _returnKeyDown;
-
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _hidden;
-    char _focus;
-}
-@end
 @implementation HotDogStandTextFields
 - (id)init
 {

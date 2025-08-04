@@ -64,17 +64,6 @@ static char *iconPixels =
 " bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb \n"
 ;
 
-@interface HotDogStandDesktopIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandDesktopIcon
 - (int)preferredWidth
 {

@@ -80,36 +80,6 @@ exit(1);
 
 
 
-@interface TableInterface : IvarObject
-{
-    id _generateCommand;
-    id _observer;
-    id _origArray;
-    id _array;
-    id _columns;
-    int _mouseX;
-    int _mouseY;
-    int _offsetX;
-    int _offsetY;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _selectedIndex;
-    int _selectedColumn;
-    id _sortKey;
-    BOOL _sortReverse;
-    BOOL _sortAlpha;
-    BOOL _rightButtonDown;
-    int _rightButtonDownX;
-    int _rightButtonDownY;
-    int _rightButtonDownRootX;
-    int _rightButtonDownRootY;
-    id _menuDict;
-    int _hoverIndex;
-    id _defaultMessageForClick;
-    id _defaultMessageForRightClick;
-}
-@end
 
 @implementation TableInterface
 - (int)fileDescriptor

@@ -26,8 +26,6 @@
 #import "HOTDOG.h"
 
 
-@interface MacRootWindow : IvarObject
-@end
 @implementation MacRootWindow
 - (BOOL)shouldPassthroughClickToFocus
 {

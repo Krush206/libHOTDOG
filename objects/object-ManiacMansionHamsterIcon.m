@@ -118,20 +118,6 @@ static char *cookedHamsterPixels =
 ;
 
 
-@interface ManiacMansionHamsterIcon : IvarObject
-{
-    int _microwavable;
-    int _cooked;
-
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation ManiacMansionHamsterIcon
 - (id)init
 {

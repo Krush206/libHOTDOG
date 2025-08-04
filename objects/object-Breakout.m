@@ -98,26 +98,6 @@ static char *ballPixels =
 "  ....  \n"
 ;
 
-@interface Breakout : IvarObject
-{
-    int _iteration;
-    Int4 _leftWallRect;
-    Int4 _rightWallRect;
-    Int4 _topWallRect;
-    int _width;
-    int _height;
-    int _paddleX;
-    int _paddleY;
-    int _ballX;
-    int _ballY;
-    int _ballDeltaX;
-    int _ballDeltaY;
-    id _bricks;
-    int _score;
-    int _flash;
-    id _bitmap;
-}
-@end
 
 @implementation Breakout
 

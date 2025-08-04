@@ -354,35 +354,6 @@ static unsigned char yellow_down_rgb[] = {
 }
 @end
 
-@interface AquaWindow : IvarObject
-{
-    int _leftBorder;
-    int _rightBorder;
-    int _topBorder;
-    int _bottomBorder;
-    id _x11HasChildMask;
-    char _buttonDown;
-    char _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownW;
-    int _buttonDownH;
-    Int4 _titleBarRect;
-    Int4 _titleBarTextRect;
-    Int4 _closeButtonRect;
-    Int4 _minimizeButtonRect;
-    Int4 _maximizeButtonRect;
-    Int4 _leftButtonsRect;
-    Int4 _redButtonRect;
-    Int4 _yellowButtonRect;
-    Int4 _greenButtonRect;
-    Int4 _rightButtonRect;
-
-    // setPixelScale:
-    int _pixelScaling;
-    id _scaledFont;
-}
-@end
 @implementation AquaWindow
 - (id)init
 {

@@ -66,17 +66,6 @@ static char *programGroupPixels =
 " ##############################\n"
 ;
 
-@interface HotDogStandProgramGroupIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandProgramGroupIcon
 - (int)preferredWidth
 {

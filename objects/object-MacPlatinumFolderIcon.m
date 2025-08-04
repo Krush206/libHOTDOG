@@ -221,15 +221,6 @@ static char *selectedFolderPixels =
 
 
 
-@interface MacPlatinumFolderIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-}
-@end
 @implementation MacPlatinumFolderIcon
 - (int)preferredWidth
 {

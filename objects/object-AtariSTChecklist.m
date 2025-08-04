@@ -332,24 +332,6 @@ static char *checkbox_down_pixels =
 }
 @end
 
-@interface AtariSTChecklist : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    BOOL _checked[MAX_CHECKBOXES];
-    Int4 _rect[MAX_CHECKBOXES];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation AtariSTChecklist
 - (id)init
 {

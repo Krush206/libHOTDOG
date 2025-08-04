@@ -34,11 +34,6 @@
 }
 @end
 
-@interface TextMenuItem : IvarObject
-{
-    id _text;
-}
-@end
 
 @implementation TextMenuItem
 - (id)text

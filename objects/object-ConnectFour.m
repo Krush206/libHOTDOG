@@ -84,20 +84,6 @@ static char *cString =
 }
 @end
 
-@interface ConnectFour : IvarObject
-{
-    id _bitmap;
-    int _board[BOARD_HEIGHT*BOARD_WIDTH];
-    int _potentialX;
-    int _potentialY;
-    int _winner;
-    int _tie;
-    int _playerValueScore;
-    int _computerValueScore;
-    int _buttonDownX;
-    int _buttonHoverX;
-}
-@end
 
 @implementation ConnectFour
 

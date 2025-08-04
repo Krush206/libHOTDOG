@@ -113,18 +113,6 @@ static char *trashPixels =
 @end
 
 
-@interface MacColorTrashIcon : IvarObject
-{
-    int _builtin;
-    id _path;
-    int _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation MacColorTrashIcon
 - (int)preferredWidth
 {

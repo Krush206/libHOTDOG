@@ -698,25 +698,6 @@ static char *puzzleCStrings[] = {
 ,
 };
 
-@interface FifteenPuzzle : IvarObject
-{
-    int _x[16];
-    int _y[16];
-    int _flash;
-    int _needsUpdate;
-    int _piece[16];
-    int _transition[16];
-    int _transitionCurrentFrame;
-    int _transitionMaxFrame;
-    id _moves;
-    int _HOTDOGNOFRAME;
-    char _buttonDown;
-    char _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    Int4 _closeButtonRect;
-}
-@end
 @implementation FifteenPuzzle
 - (char *)x11WindowMaskCString
 {

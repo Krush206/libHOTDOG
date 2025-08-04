@@ -332,24 +332,6 @@ static char *radio_down_pixels =
 }
 @end
 
-@interface AtariSTRadio : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    int _selectedIndex;
-    Int4 _rect[MAX_RADIO];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation AtariSTRadio
 - (id)init
 {

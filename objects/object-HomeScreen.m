@@ -755,14 +755,6 @@ unsigned char *allIcons[] = {
 }
 @end
 
-@interface HomeScreen : IvarObject
-{
-    id _array;
-    Int4 _rects[6*4];
-    int _mouseDownX;
-    int _mouseDownY;
-}
-@end
 @implementation HomeScreen
 - (int)preferredWidth
 {

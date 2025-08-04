@@ -623,17 +623,6 @@ static char *win31ProgramManagerIconPixels =
 }
 @end
 
-@interface OpenStepWorkspace : IvarObject
-{
-    id _columns;
-    int _mouseDown;
-    int _mouseDownX;
-    int _mouseDownY;
-    id _iconMode;
-    int _numberOfColumns;
-    id _command;
-}
-@end
 @implementation OpenStepWorkspace
 - (id)init
 {

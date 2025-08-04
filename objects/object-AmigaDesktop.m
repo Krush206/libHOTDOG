@@ -152,16 +152,6 @@ exit(1);
 }
 @end
 
-@interface AmigaDesktop : IvarObject
-{
-    id _observer;
-    time_t _timestamp;
-
-    id _selectionBox;
-    int _buttonDownRootX;
-    int _buttonDownRootY;
-}
-@end
 @implementation AmigaDesktop
 - (void)exit:(int)status
 {

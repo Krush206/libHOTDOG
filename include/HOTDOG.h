@@ -23,6 +23,9 @@
 
  */
 
+#ifndef _HOTDOG_H
+#define _HOTDOG_H 1
+
 #ifdef BUILD_FOR_OSX_ON_LINUX
 typedef double __m128d;
 typedef long long __m128i;
@@ -569,5 +572,5 @@ typedef struct {
 #import "HOTDOG-ios.h"
 #import "HOTDOG-osx-ios.h"
 #endif
-
+#endif
 

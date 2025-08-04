@@ -539,23 +539,6 @@ static char *textBorderRightPixels =
 }
 @end
 
-@interface HotDogStandAlert : IvarObject
-{
-    id _text;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _x11WaitForFocusOutThenClose;
-    int _returnKey;
-    int _focusIndex;
-    int _didFocusOut;
-    int _backgroundCount;
-}
-@end
 
 @implementation HotDogStandAlert
 - (int)preferredWidth

@@ -524,21 +524,6 @@ static char *textBorderRightPixels =
 }
 @end
 
-@interface HotDogStandProgramBox : IvarObject
-{
-    char _separator;
-    BOOL _eof;
-    id _text;
-    id _line;
-    Int4 _okRect;
-    id _okText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    id _partialLine;
-    char _focus;
-}
-@end
 @implementation HotDogStandProgramBox
 - (id)init
 {

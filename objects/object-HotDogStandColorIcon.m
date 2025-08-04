@@ -72,17 +72,6 @@ static char *iconPixels =
 " bbbbb    bbbbb    bbbbb \n"
 ;
 
-@interface HotDogStandColorIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandColorIcon
 - (int)preferredWidth
 {

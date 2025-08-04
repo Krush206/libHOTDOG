@@ -680,37 +680,6 @@ static char *zeroWingPixels3 =
 }
 @end
 
-@interface ZeroWingRadio : IvarObject
-{
-    id _colorizedFont;
-    id _defaultButtonLeftPixels;
-    id _defaultButtonMiddlePixels;
-    id _defaultButtonRightPixels;
-
-    int _iteration;
-    int _dialogMode;
-    id _text;
-    id _array;
-    int _selectedIndex;
-    Int4 _rect[MAX_RADIO];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _radioPixels;
-    id _radioSelectedPixels;
-    id _radioDownPixels;
-    int _returnKey;
-
-    int _scrollY;
-    int _minRadioY;
-    int _maxRadioY;
-}
-@end
 @implementation ZeroWingRadio
 - (id)init
 {

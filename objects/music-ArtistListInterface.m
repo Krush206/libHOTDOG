@@ -100,23 +100,6 @@ static unsigned char *button_bottom_right_squared =
 }
 @end
 
-@interface ArtistListInterface : IvarObject
-{
-    time_t _timestamp;
-    int _seconds;
-    id _array;
-    Int4 _rect[MAX_RECT];
-    id _buttons;
-    char _buttonType[MAX_RECT];
-    int _buttonDown;
-    int _buttonHover;
-    int _scrollY;
-
-    id _bitmap;
-    Int4 _r;
-    int _cursorY;
-}
-@end
 @implementation ArtistListInterface
 - (void)handleBackgroundUpdate:(id)event
 {

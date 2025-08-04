@@ -68,17 +68,6 @@ static char *iconPixels =
 "                        OOOOO   \n"
 ;
 
-@interface HotDogStandFontsIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandFontsIcon
 - (int)preferredWidth
 {

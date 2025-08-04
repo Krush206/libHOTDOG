@@ -48,15 +48,6 @@
 @end
 
 
-@interface CommandBitmapMenuItem : IvarObject
-{
-    id _fileDescriptor;
-    id _firstLine;
-    id _pixels;
-    id _palette;
-    id _highlightedPalette;
-}
-@end
 @implementation CommandBitmapMenuItem
 - (int)fileDescriptor
 {

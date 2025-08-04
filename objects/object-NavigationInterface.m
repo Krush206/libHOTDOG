@@ -458,22 +458,6 @@ NSLog(@"pushToNavigationStack %@", self);
 }
 @end
 
-@interface NavigationStack : IvarObject
-{
-    BOOL _buttonPassthrough;
-    id _buttonDown;
-    id _buttonHover;
-    id _context;
-    id _rightButtonDown;
-    int _animateIteration;
-    int _animateMaxIteration;
-    id _animateFromContext;
-    id _animateToContext;
-    id _animateTransition;
-    id _defaultTitle;
-    BOOL _updateWindowName;
-}
-@end
 
 @implementation NavigationStack
 - (id)contextualMenu

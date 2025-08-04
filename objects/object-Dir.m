@@ -136,28 +136,6 @@ static unsigned char *button_bottom_right_squared =
 @end
 
 
-@interface Dir : IvarObject
-{
-    id _currentDirectory;
-    time_t _timestamp;
-    int _seconds;
-    id _array;
-    Int4 _rect[MAX_RECT];
-    int _buttonDown;
-    int _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownOffsetX;
-    int _buttonDownOffsetY;
-    int _scrollY;
-
-    id _bitmap;
-    Int4 _r;
-    int _cursorY;
-
-    id _navigationRightMouseDownMessage;
-}
-@end
 @implementation Dir
 - (id)hoverObject
 {

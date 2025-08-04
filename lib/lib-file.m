@@ -127,11 +127,6 @@ exit(0);
 @end
 
 
-@interface FilePointer : IvarObject
-{
-    FILE *_fp;
-}
-@end
 @implementation FilePointer
 - (void)dealloc
 {

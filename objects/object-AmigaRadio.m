@@ -80,21 +80,6 @@ static char *radio_down_pixels =
 }
 @end
 
-@interface AmigaRadio : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    int _selectedIndex;
-    Int4 _rect[MAX_RADIO];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-}
-@end
 @implementation AmigaRadio
 - (int)preferredWidth
 {

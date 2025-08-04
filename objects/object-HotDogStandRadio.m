@@ -593,24 +593,6 @@ static char *textBottomBorderRightPixels =
 }
 @end
 
-@interface HotDogStandRadio : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    int _selectedIndex;
-    Int4 _rect[MAX_RADIO];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    int _returnKey;
-    int _spaceKey;
-    char _focus;
-}
-@end
 @implementation HotDogStandRadio
 - (id)init
 {

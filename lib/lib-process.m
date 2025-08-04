@@ -354,17 +354,6 @@ NSLog(@"unable to open /dev/null");
 @end
 
 
-@interface Process : IvarObject
-{
-    id _command;
-    int _infd;
-    int _outfd;
-    int _pid;
-    id _status;
-    id _exitStatus;
-    id _data;
-}
-@end
 @implementation Process
 
 - (id)init

@@ -59,8 +59,6 @@ static double normalizedYForRect_insideRect_(Int4 innerRect, Int4 outerRect)
 }
 @end
 
-@interface TestVerticalSlider : IvarObject
-@end
 @implementation TestVerticalSlider
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r
 {
@@ -143,22 +141,6 @@ static double normalizedYForRect_insideRect_(Int4 innerRect, Int4 outerRect)
 }
 @end
 
-@interface VolumeMenu : IvarObject
-{
-    id _alsaCardName;
-    id _alsaMixerName;
-    id _alsaStatus;
-    id _alsaVolume;
-    double _volume;
-    int _playbackSwitch;
-    double _grabbedSliderPct;
-    int _mouseX;
-    int _mouseY;
-    Int4 _rectForVolumeSliderTrack;
-    Int4 _rectForVolumeSliderKnob;
-    int _grabbedVolumeSliderY;
-}
-@end
 @implementation VolumeMenu
 - (int *)x11WindowMaskPointsForWidth:(int)w height:(int)h
 {

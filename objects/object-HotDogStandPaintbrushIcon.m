@@ -75,17 +75,6 @@ static char *iconPixels =
 "      bb    bbbbbbbbbbb         \n"
 ;
 
-@interface HotDogStandPaintbrushIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandPaintbrushIcon
 - (int)preferredWidth
 {

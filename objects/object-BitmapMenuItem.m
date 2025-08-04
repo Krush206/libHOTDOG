@@ -313,13 +313,6 @@ static char *bananaPixels =
 }
 @end
 
-@interface BitmapMenuItem : IvarObject
-{
-    id _pixels;
-    id _palette;
-    id _highlightedPalette;
-}
-@end
 
 @implementation BitmapMenuItem
 @end

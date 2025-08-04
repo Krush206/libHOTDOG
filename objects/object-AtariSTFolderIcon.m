@@ -63,15 +63,6 @@ static char *folderPixels =
 ;
 
 
-@interface AtariSTFolderIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-}
-@end
 @implementation AtariSTFolderIcon
 - (int)preferredWidth
 {

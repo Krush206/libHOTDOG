@@ -68,17 +68,6 @@ static char *iconPixels =
 "b O               bbbbbbOO    \n"
 ;
 
-@interface HotDogStandSoundRecorderIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandSoundRecorderIcon
 - (int)preferredWidth
 {

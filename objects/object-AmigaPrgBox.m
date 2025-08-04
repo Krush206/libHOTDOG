@@ -39,19 +39,6 @@
 }
 @end
 
-@interface AmigaPrgBox : IvarObject
-{
-    id _process;
-    char _separator;
-    id _text;
-    int _returnKeyDown;
-    Int4 _okRect;
-    id _okText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-}
-@end
 @implementation AmigaPrgBox
 - (int)preferredWidth
 {

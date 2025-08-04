@@ -206,21 +206,6 @@ static unsigned char blue_button_right[] = {
 238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,239,239,239,239,239,239,239,239,239,239,239,239,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0 // 24
 };
 
-@interface AquaTailBox : IvarObject
-{
-    id _path;
-    time_t _timestamp;
-    id _text;
-    id _fileText;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-}
-@end
 @implementation AquaTailBox
 - (int)preferredWidth
 {

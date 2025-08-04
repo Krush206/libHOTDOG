@@ -109,11 +109,6 @@
 }
 @end
 
-@interface SelectionBitmap : IvarObject
-{
-    id _bitmap;
-}
-@end
 @implementation SelectionBitmap
 - (int)preferredWidth
 {

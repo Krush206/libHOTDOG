@@ -74,17 +74,6 @@ static char *iconPixels =
 " bbbbbbbbb  bbbbbbb bbbbbb    \n"
 ;
 
-@interface HotDogStandMSDOSPromptIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandMSDOSPromptIcon
 - (int)preferredWidth
 {

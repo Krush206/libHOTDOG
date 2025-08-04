@@ -102,17 +102,6 @@ static char *openDiskPixels =
 "  ...b...b...b...b...b...b...b  \n"
 ;
 
-@interface MacClassicDiskIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation MacClassicDiskIcon
 - (int)preferredWidth
 {

@@ -156,16 +156,6 @@ exit(1);
 }
 @end
 
-@interface MacPlatinumDesktop : IvarObject
-{
-    id _observer;
-    time_t _timestamp;
-
-    id _selectionBox;
-    int _buttonDownRootX;
-    int _buttonDownRootY;
-}
-@end
 @implementation MacPlatinumDesktop
 - (void)exit:(int)status
 {

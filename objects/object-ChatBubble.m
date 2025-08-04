@@ -35,15 +35,6 @@
 }
 @end
 
-@interface ChatBubble : IvarObject
-{
-    int _timer;
-    int _maxWidth;
-    id _text;
-    id _fgcolor;
-    id _bgcolor;
-}
-@end
 @implementation ChatBubble
 - (void)handleBackgroundUpdate:(id)event
 {

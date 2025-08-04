@@ -61,17 +61,6 @@ static char *iconPixels =
 "                    bb oO      \n"
 ;
 
-@interface HotDogStandMediaPlayerIcon : IvarObject
-{
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation HotDogStandMediaPlayerIcon
 - (int)preferredWidth
 {

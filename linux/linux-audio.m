@@ -32,15 +32,6 @@
 
 #define DEFAULT_AUDIO_DEVICE "/dev/dsp"
 
-@interface AudioOutput : IvarObject
-{
-    int _fd;
-
-    int _sampleRate;
-    int _numberOfChannels;
-    int _bitsPerChannel;
-}
-@end
 @implementation AudioOutput
 - (id)init
 {
@@ -118,14 +109,6 @@ NSLog(@"unable to write to audio device, frameCount %d result %d", frameCount, n
 #endif
 
 #ifdef BUILD_FOR_LINUX
-@interface AudioOutput : IvarObject
-{
-    id _aplay;
-    int _sampleRate;
-    int _numberOfChannels;
-    int _bitsPerChannel;
-}
-@end
 @implementation AudioOutput
 
 - (void)openAudioWithSampleRate:(int)sampleRate frameCount:(int)frameCount channels:(int)channels bitsPerChannel:(int)bitsPerChannel

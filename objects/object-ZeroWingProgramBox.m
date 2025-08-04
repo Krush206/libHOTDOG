@@ -628,30 +628,6 @@ static char *zeroWingPixels3 =
 }
 @end
 
-@interface ZeroWingProgramBox : IvarObject
-{
-    id _colorizedFont;
-    id _defaultButtonLeftPixels;
-    id _defaultButtonMiddlePixels;
-    id _defaultButtonRightPixels;
-
-    int _iteration;
-
-    char _separator;
-    BOOL _eof;
-    id _text;
-    id _line;
-    int _returnKeyDown;
-    Int4 _okRect;
-    id _okText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    id _partialLine;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation ZeroWingProgramBox
 - (id)init
 {

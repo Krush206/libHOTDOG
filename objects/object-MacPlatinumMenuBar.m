@@ -117,31 +117,6 @@ static char *menuBarRightPixels =
 "bbbbbbbb\n"
 ;
 
-@interface MacPlatinumMenuBar : IvarObject
-{
-    id _configPath;
-    time_t _configTimestamp;
-    int _flashIteration;
-    int _flashIndex;
-    BOOL _buttonDown;
-    id _selectedDict;
-    id _menuDict;
-    id _array;
-
-    int _pixelScaling;
-    id _scaledFont;
-    id _scaledMenuBarLeftPixels;
-    int _scaledMenuBarLeftWidth;
-    id _scaledMenuBarMiddlePixels;
-    id _scaledMenuBarRightPixels;
-    int _scaledMenuBarRightWidth;
-
-    unsigned long _appMenuWindow;
-    int _appMenuWindowX;
-    int _appMenuWindowY;
-    unsigned long _menuWindowWaitForUnmapNotify;
-}
-@end
 
 @implementation MacPlatinumMenuBar
 

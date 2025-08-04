@@ -661,32 +661,6 @@ static char *zeroWingPixels3 =
 }
 @end
 
-@interface ZeroWingAlert : IvarObject
-{
-    id _colorizedFont;
-    id _defaultButtonLeftPixels;
-    id _defaultButtonMiddlePixels;
-    id _defaultButtonRightPixels;
-
-    int _iteration;
-    id _text;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _x11WaitForFocusOutThenClose;
-    int _returnKey;
-    int _didFocusOut;
-    int _backgroundCount;
-    int _buttonDownX;
-    int _buttonDownY;
-
-    int _scrollY;
-}
-@end
 
 @implementation ZeroWingAlert
 - (id)init

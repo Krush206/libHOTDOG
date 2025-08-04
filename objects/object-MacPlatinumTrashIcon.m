@@ -173,14 +173,6 @@ static char *selectedTrashPixels =
 @end
 
 
-@interface MacPlatinumTrashIcon : IvarObject
-{
-    int _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-}
-@end
 @implementation MacPlatinumTrashIcon
 - (int)preferredWidth
 {

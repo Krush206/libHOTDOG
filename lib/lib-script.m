@@ -667,11 +667,6 @@ NSLog(@"%@", err);
 @end
 
 
-@interface ScriptToken : IvarObject
-{
-    id _text;
-}
-@end
 @implementation ScriptToken
 + (id)tokenWithText:(id)text
 {
@@ -700,15 +695,6 @@ NSLog(@"%@", err);
 
 @end
 
-@interface ScriptParser : IvarObject
-{
-    id _input;
-    id _cells;
-    id _current;
-    BOOL _stringIsQuoted;
-    char *_p;
-}
-@end
 @implementation ScriptParser
 - (id)convertCStringToObject:(char *)cstring
 {
@@ -870,19 +856,6 @@ NSLog(@"%@", err);
 @end
 
 
-@interface ScriptInterpreter : IvarObject
-{
-    id _initialObject;
-    id _contextualObject;
-    id _recipient;
-    BOOL _ignoreReturnValue;
-    id _selectorName;
-    id _args;
-    id _bracket;
-    int _bracketDepth;
-    id _parenthesis;
-}
-@end
 @implementation ScriptInterpreter
 
 - (id)init

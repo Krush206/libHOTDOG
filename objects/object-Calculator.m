@@ -559,20 +559,6 @@ static char *moveWindowWhitePixels =
 
 
 
-@interface Calculator : IvarObject
-{
-    char _operator;
-    id _firstValue;
-    id _value;
-    char _buttonDown;
-    char _buttonHover;
-    int _width;
-    int _height;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _HOTDOGNOFRAME;
-}
-@end
 @implementation Calculator
 - (id)init
 {

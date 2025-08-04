@@ -31,12 +31,6 @@ static char *verticalPixels =
 "w\n"
 ;
 
-@interface SelectionBox : IvarObject
-{
-    int _buttonDownRootX;
-    int _buttonDownRootY;
-}
-@end
 @implementation SelectionBox
 - (int)preferredWidth
 {

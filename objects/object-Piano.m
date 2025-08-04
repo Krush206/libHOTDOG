@@ -123,11 +123,6 @@ static unsigned char *black_key =
 "b      b\n"
 ".bbbbbb.\n"
 ;
-@interface Piano : IvarObject
-{
-    char _noteOn[256];
-}
-@end
 @implementation Piano
 - (void)setNoteOn:(int)i
 {

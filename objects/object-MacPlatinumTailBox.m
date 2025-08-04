@@ -622,24 +622,6 @@ static char *cancelButtonDownRightPixels =
     return obj;
 }
 @end
-@interface MacPlatinumTailBox : IvarObject
-{
-    id _path;
-    time_t _timestamp;
-    id _text;
-    id _fileText;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation MacPlatinumTailBox
 - (id)init
 {

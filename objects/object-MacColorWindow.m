@@ -369,43 +369,6 @@ static char *resizeButtonPixels =
 @end
 
 
-@interface MacColorWindow : IvarObject
-{
-    int _leftBorder;
-    int _rightBorder;
-    int _topBorder;
-    int _bottomBorder;
-    id _x11HasChildMask;
-
-    char _buttonDown;
-    char _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownW;
-    int _buttonDownH;
-    Int4 _titleBarRect;
-    Int4 _titleBarTextRect;
-    Int4 _closeButtonRect;
-    Int4 _maximizeButtonRect;
-
-    // setPixelScale:
-    int _pixelScaling;
-    id _scaledFont;
-    id _scaledTitleBarButtonDownPixels;
-    id _scaledTitleBarCloseButtonPixels;
-    int _scaledTitleBarCloseButtonWidth;
-    id _scaledTitleBarMaximizeButtonPixels;
-    int _scaledTitleBarMaximizeButtonWidth;
-    id _scaledInactiveTitleBarLeftPixels;
-    id _scaledActiveTitleBarLeftPixels;
-    id _scaledInactiveTitleBarMiddlePixels;
-    id _scaledActiveTitleBarMiddlePixels;
-    id _scaledInactiveTitleBarRightPixels;
-    id _scaledActiveTitleBarRightPixels;
-    int _scaledActiveTitleBarHeight;
-    id _scaledResizeButtonPixels;
-}
-@end
 @implementation MacColorWindow
 - (id)init
 {

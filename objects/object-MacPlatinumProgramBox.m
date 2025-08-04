@@ -410,24 +410,6 @@ static char *okButtonDownRightPixels =
 }
 @end
 
-@interface MacPlatinumProgramBox : IvarObject
-{
-    char _separator;
-    BOOL _eof;
-    id _text;
-    id _line;
-    int _returnKeyDown;
-    Int4 _okRect;
-    id _okText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    id _partialLine;
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation MacPlatinumProgramBox
 - (id)init
 {

@@ -265,39 +265,6 @@ exit(1);
 }
 @end
 
-@interface ALSAPanel : IvarObject
-{
-    id _currentDirectory;
-    time_t _timestamp;
-    int _seconds;
-    id _generateCommand;
-    id _observer;
-    BOOL _waitForObserver;
-    id _lastLine;
-    id _array;
-    Int4 _rect[MAX_RECT];
-    id _buttons;
-    id _buttonDicts;
-    char _buttonType[MAX_RECT];
-    int _buttonDown;
-    int _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownOffsetX;
-    int _buttonDownOffsetY;
-    int _buttonDownMinKnobX;
-    int _buttonDownMaxKnobX;
-    double _buttonDownKnobPct;
-    int _scrollY;
-
-    id _bitmap;
-    Int4 _r;
-    int _cursorY;
-
-    id _buttonRightMouseDownMessage;
-    id _navigationRightMouseDownMessage;
-}
-@end
 @implementation ALSAPanel
 - (id)hoverObject
 {
@@ -982,12 +949,6 @@ NSLog(@"waiting for input");
 }
 @end
 
-@interface StandardInputPanel:ALSAPanel
-{
-    BOOL _standardInputEOF;
-    id _standardInputData;
-}
-@end
 @implementation StandardInputPanel
 - (int)fileDescriptor
 {

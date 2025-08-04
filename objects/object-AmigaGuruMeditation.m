@@ -45,13 +45,6 @@ static Int4 rectWithPadding_w_h_(Int4 r, int paddingWidth, int paddingHeight)
 }
 @end
 
-@interface AmigaGuruMeditation : IvarObject
-{
-    int _iteration;
-    id _text;
-    int _HOTDOGNOFRAME;
-}
-@end
 @implementation AmigaGuruMeditation
 - (id)init
 {

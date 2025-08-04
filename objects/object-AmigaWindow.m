@@ -338,51 +338,6 @@ static char *resizeButtonPixels =
 
 
 
-@interface AmigaWindow : IvarObject
-{
-    int _leftBorder;
-    int _rightBorder;
-    int _topBorder;
-    int _bottomBorder;
-    id _x11HasChildMask;
-    char _buttonDown;
-    char _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownW;
-    int _buttonDownH;
-    Int4 _titleBarRect;
-    Int4 _closeButtonRect;
-    Int4 _lowerButtonRect;
-    Int4 _raiseButtonRect;
-    Int4 _titleTextRect;
-
-    // setPixelScale:
-    int _pixelScaling;
-    id _scaledFont;
-    id _scaledTitleBarLeftPixels;
-    id _scaledTitleBarMiddlePixels;
-    id _scaledTitleBarRightPixels;
-    int _scaledTitleBarHeight;
-    id _scaledCloseButtonPixels;
-    int _scaledCloseButtonWidth;
-    id _scaledLowerButtonPixels;
-    int _scaledLowerButtonWidth;
-    id _scaledRaiseButtonPixels;
-    int _scaledRaiseButtonWidth;
-    id _scaledLeftBorderPixels;
-    int _scaledLeftBorderWidth;
-    id _scaledBottomBorderPixels;
-    int _scaledBottomBorderHeight;
-    id _scaledRightBorderPixels;
-    int _scaledRightBorderWidth;
-    id _scaledResizeButtonPixels;
-    int _scaledResizeButtonWidth;
-    int _scaledResizeButtonHeight;
-    id _scaledInactiveTitleBarPixels;
-    id _scaledTextBackgroundPixels;
-}
-@end
 @implementation AmigaWindow
 - (id)init
 {

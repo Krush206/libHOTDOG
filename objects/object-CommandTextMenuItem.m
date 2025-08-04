@@ -99,17 +99,6 @@
 }
 @end
 
-@interface CommandTextMenuItem : IvarObject
-{
-    id _command;
-    id _fileDescriptor;
-    id _lastLine;
-    int _maxWidth;
-    id _lineMessage;
-    id _stringFormat;
-    BOOL _didExit;
-}
-@end
 @implementation CommandTextMenuItem
     
 - (int)fileDescriptor

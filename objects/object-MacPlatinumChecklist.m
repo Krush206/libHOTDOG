@@ -728,24 +728,6 @@ static char *cancelButtonDownRightPixels =
 }
 @end
 
-@interface MacPlatinumChecklist : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    BOOL _checked[MAX_CHECKBOXES];
-    Int4 _rect[MAX_CHECKBOXES];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 @implementation MacPlatinumChecklist
 - (id)init
 {

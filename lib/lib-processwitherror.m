@@ -32,19 +32,6 @@
 #include <signal.h>
 #include <errno.h>
 
-@interface ProcessWithError : IvarObject
-{
-    id _command;
-    int _infd;
-    int _outfd;
-    int _errfd;
-    int _pid;
-    id _status;
-    id _exitStatus;
-    id _data;
-    id _errdata;
-}
-@end
 @implementation ProcessWithError
 
 - (id)init

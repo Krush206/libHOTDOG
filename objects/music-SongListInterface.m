@@ -108,31 +108,6 @@ static unsigned char *button_bottom_right_squared =
 }
 @end
 
-@interface SongListInterface : IvarObject
-{
-    time_t _timestamp;
-    int _seconds;
-    id _artist;
-    id _array;
-    Int4 _rect[MAX_RECT];
-    id _buttons;
-    char _buttonType[MAX_RECT];
-    int _buttonDown;
-    int _buttonHover;
-    int _scrollY;
-
-    id _bitmap;
-    Int4 _r;
-    int _cursorY;
-
-    char _letterHeader;
-    char _letterHeaderScrolledOff;
-    int _letterHeaderY[256];
-    int _letterScrollerButton;
-
-    char _pendingScrollToLetter;
-}
-@end
 @implementation SongListInterface
 - (void)handleBackgroundUpdate:(id)event
 {

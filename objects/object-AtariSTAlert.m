@@ -293,24 +293,6 @@ static char *buttonRightPixels =
 }
 @end
 
-@interface AtariSTAlert : IvarObject
-{
-    id _text;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _x11WaitForFocusOutThenClose;
-    int _didFocusOut;
-    int _backgroundCount;
-    int _HOTDOGNOFRAME;
-    int _buttonDownX;
-    int _buttonDownY;
-}
-@end
 
 @implementation AtariSTAlert
 - (id)init

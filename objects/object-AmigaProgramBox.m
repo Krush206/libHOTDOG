@@ -37,21 +37,6 @@
 }
 @end
 
-@interface AmigaProgramBox : IvarObject
-{
-    char _separator;
-    BOOL _eof;
-    id _text;
-    id _line;
-    int _returnKeyDown;
-    Int4 _okRect;
-    id _okText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    id _partialLine;
-}
-@end
 @implementation AmigaProgramBox
 - (int)preferredWidth
 {

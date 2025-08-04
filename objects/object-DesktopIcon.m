@@ -55,23 +55,6 @@
 
 
 
-@interface DesktopIcon : IvarObject
-{
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownRootX;
-    int _buttonDownRootY;
-
-    int _backgroundClock;
-
-    id _fileDict;
-    id _dragObject;
-    id _state;
-    id _bitmap;
-    id _userObject;
-}
-@end
 @implementation DesktopIcon
 
 - (void)handleBackgroundUpdate:(id)event

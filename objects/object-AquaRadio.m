@@ -305,21 +305,6 @@ static unsigned char blue_button_right[] = {
 238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,239,239,239,239,239,239,239,239,239,239,239,239,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0,  0,255,  0 // 24
 };
 
-@interface AquaRadio : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    int _selectedIndex;
-    Int4 _rect[MAX_RADIO];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-}
-@end
 @implementation AquaRadio
 - (int)preferredWidth
 {

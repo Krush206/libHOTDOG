@@ -616,57 +616,6 @@ exit(0);
 @end
 
 
-@interface WindowManager : IvarObject
-{
-    Display *_display;
-    int _displayFD;
-    Window _rootWindow;
-    int _rootWindowX;
-    int _rootWindowY;
-    int _rootWindowWidth;
-    int _rootWindowHeight;
-    XVisualInfo _visualInfo;
-    BOOL _isWindowManager;
-    Cursor _leftPointerCursor;
-    Cursor _leftSideCursor;
-    Cursor _rightSideCursor;
-    Cursor _topSideCursor;
-    Cursor _bottomSideCursor;
-    Cursor _topLeftCornerCursor;
-    Cursor _topRightCornerCursor;
-    Cursor _bottomLeftCornerCursor;
-    Cursor _bottomRightCornerCursor;
-    char _currentCursor;
-    
-    Colormap _colormap;
-    id _objectWindows;
-
-    id _reparentClassName;
-    id _rootWindowObject;
-
-    id _menuBar;
-    int _menuBarHeight;
-    time_t _backgroundUpdateTimestamp;
-    id _focusDict;
-    id _buttonDownDict;
-    int _buttonDownWhich;
-    int _mouseX;
-    int _mouseY;
-    id _openGLTexture;
-    id _openGLObjectTexture;
-    Window _openGLWindow;
-
-    id _pendingMessage;
-
-    id _menuDict;
-
-    Window _focusInEventWindow;
-
-    Window _desktopWindow;
-
-    id _focusAppMenu;
-}
-@end
 @implementation WindowManager
 - (void)grabHotKeys
 {

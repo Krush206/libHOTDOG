@@ -25,24 +25,6 @@
 
 #import "HOTDOG.h"
 
-@interface AtariSTMenu : IvarObject
-{
-    int _mouseX;
-    int _mouseY;
-    id _array;
-    id _selectedObject;
-    id _contextualObject;
-    int _scrollY;
-
-    int _pixelScaling;
-    id _scaledFont;
-
-    int _unmapInsteadOfClose;
-    id _title;
-
-    unsigned long _contextualWindow;
-}
-@end
 
 @implementation AtariSTMenu
 

@@ -41,11 +41,6 @@ static id desktopMenuCSV =
 }
 @end
 
-@interface MiscDesktop : IvarObject
-{
-    time_t _timestamp;
-}
-@end
 @implementation MiscDesktop
 - (void)handleDestroyNotifyEvent:(id)event
 {

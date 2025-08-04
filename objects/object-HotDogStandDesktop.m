@@ -41,11 +41,6 @@ static id desktopMenuCSV =
 }
 @end
 
-@interface HotDogStandDesktop : IvarObject
-{
-    time_t _timestamp;
-}
-@end
 @implementation HotDogStandDesktop
 - (void)handleDestroyNotifyEvent:(id)event
 {

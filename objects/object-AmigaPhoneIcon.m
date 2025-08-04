@@ -74,18 +74,6 @@ static char *phonePixels =
 ;
 
 
-@interface AmigaPhoneIcon : IvarObject
-{
-    int _builtin;
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation AmigaPhoneIcon
 - (int)preferredWidth
 {

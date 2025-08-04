@@ -626,32 +626,6 @@ static char *zeroWingPixels3 =
     return obj;
 }
 @end
-@interface ZeroWingTailBox : IvarObject
-{
-    id _colorizedFont;
-    id _defaultButtonLeftPixels;
-    id _defaultButtonMiddlePixels;
-    id _defaultButtonRightPixels;
-
-    int _iteration;
-
-    id _path;
-    time_t _timestamp;
-    id _text;
-    id _fileText;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    int _buttonDownX;
-    int _buttonDownY;
-
-    int _returnKey;
-}
-@end
 @implementation ZeroWingTailBox
 - (id)init
 {

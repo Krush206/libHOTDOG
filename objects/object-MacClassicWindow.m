@@ -378,54 +378,6 @@ static char *closeButtonDownPixels =
 @end
 
 
-@interface MacClassicWindow : IvarObject
-{
-    int _leftBorder;
-    int _rightBorder;
-    int _topBorder;
-    int _bottomBorder;
-    id _x11HasChildMask;
-
-    char _buttonDown;
-    char _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownW;
-    int _buttonDownH;
-    Int4 _titleBarRect;
-    Int4 _titleBarTextRect;
-    Int4 _leftBorderRect;
-    Int4 _rightBorderRect;
-    Int4 _bottomBorderRect;
-    Int4 _closeButtonRect;
-    Int4 _maximizeButtonRect;
-    Int4 _resizeButtonRect;
-
-    // setPixelScale:
-    int _pixelScaling;
-    id _scaledFont;
-    id _scaledInactiveTitleBarLeftPixels;
-    id _scaledInactiveTitleBarMiddlePixels;
-    id _scaledInactiveTitleBarRightPixels;
-    id _scaledInactiveBottomBorderLeftPixels;
-    id _scaledInactiveBottomBorderMiddlePixels;
-    id _scaledInactiveBottomBorderRightPixels;
-    id _scaledActiveTitleBarLeftPixels;
-    int _scaledActiveTitleBarLeftWidth;
-    id _scaledActiveTitleBarMiddlePixels;
-    int _scaledActiveTitleBarHeight;
-    id _scaledActiveTitleBarRightPixels;
-    id _scaledLeftBorderMiddlePixels;
-    id _scaledBottomBorderLeftPixels;
-    id _scaledBottomBorderMiddlePixels;
-    id _scaledBottomBorderRightPixels;
-    id _scaledRightBorderTopPixels;
-    id _scaledRightBorderMiddlePixels;
-    id _scaledRightBorderBottomPixels;
-    id _scaledInactiveRightBorderMiddlePixels;
-    id _scaledCloseButtonDownPixels;
-}
-@end
 @implementation MacClassicWindow
 - (id)init
 {

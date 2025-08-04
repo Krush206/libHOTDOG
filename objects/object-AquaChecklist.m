@@ -308,21 +308,6 @@ static unsigned char blue_button_right[] = {
 }
 @end
 
-@interface AquaChecklist : IvarObject
-{
-    int _dialogMode;
-    id _text;
-    id _array;
-    BOOL _checked[MAX_CHECKBOXES];
-    Int4 _rect[MAX_CHECKBOXES];
-    int _down;
-    int _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-}
-@end
 @implementation AquaChecklist
 - (BOOL)getCheckedForIndex:(int)index
 {

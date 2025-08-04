@@ -373,30 +373,6 @@ static int hexchartoint(char c)
 
 
 
-@interface Bitmap : IvarObject
-{
-    int _bitmapWidth;
-    int _bitmapHeight;
-    int _bitmapStride;
-    unsigned char *_pixelBytes;
-    int _r;
-    int _g;
-    int _b;
-    int _a;
-    double _alphaDouble;
-    double _oneMinusAlphaDouble;
-    int _redTimesAlpha;
-    int _greenTimesAlpha;
-    int _blueTimesAlpha;
-    id _savedStates;
-    unsigned char **_fontCStrings;
-    int *_fontWidths;
-    int *_fontHeights;
-    int *_fontXSpacings;
-    int _glNearest;
-    BOOL _freePixelBytesDuringDealloc;
-}
-@end
 
 @implementation Definitions(fjeiowmfklsjvojiewjfksdjksjkdjfks)
 + (id)bitmapWithWidth:(int)width height:(int)height

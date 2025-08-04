@@ -33,18 +33,6 @@
 }
 @end
 
-@interface LockScreen : IvarObject
-{
-    int _unlocked;
-    int _mouseMoved;
-    int _mouseX;
-    int _mouseY;
-    Int4 _knobRect;
-    int _grabbedUnlockSliderX;
-    int _minKnobX;
-    int _maxKnobX;
-}
-@end
 @implementation LockScreen
 - (int)preferredWidth
 {

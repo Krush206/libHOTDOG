@@ -447,56 +447,6 @@ static char *revertButtonDownPixels =
 "oOOOOOOOOOOOOOOOOO\n"
 ;
 
-@interface WinMacWindow : IvarObject
-{
-    int _leftBorder;
-    int _rightBorder;
-    int _topBorder;
-    int _bottomBorder;
-
-    char _buttonDown;
-    char _buttonHover;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownW;
-    int _buttonDownH;
-    Int4 _titleBarRect;
-    Int4 _titleBarTextRect;
-    Int4 _leftBorderRect;
-    Int4 _rightBorderRect;
-    Int4 _topBorderRect;
-    Int4 _bottomBorderRect;
-    Int4 _closeButtonRect;
-    Int4 _minimizeButtonRect;
-    Int4 _maximizeButtonRect;
-    Int4 _resizeButtonRect;
-
-    id _hasFocusPalette;
-    id _noFocusPalette;
-
-    // setPixelScale:
-    int _pixelScaling;
-    id _scaledFont;
-    id _scaledActiveTitleBarLeftPixels;
-    int _scaledActiveTitleBarLeftWidth;
-    id _scaledActiveTitleBarMiddlePixels;
-    int _scaledActiveTitleBarHeight;
-    id _scaledActiveTitleBarRightPixels;
-    int _scaledActiveTitleBarRightWidth;
-    id _scaledLeftBorderMiddlePixels;
-    id _scaledLeftBorderBottomPixels;
-    id _scaledBottomBorderLeftPixels;
-    id _scaledBottomBorderMiddlePixels;
-    id _scaledBottomBorderRightPixels;
-    id _scaledRightBorderMiddlePixels;
-    id _scaledRightBorderBottomPixels;
-    id _scaledMinimizeButtonDownPixels;
-    id _scaledMaximizeButtonDownPixels;
-    id _scaledCloseButtonDownPixels;
-
-    id _inactiveTitleBarTextColor;
-}
-@end
 @implementation WinMacWindow
 - (id)init
 {

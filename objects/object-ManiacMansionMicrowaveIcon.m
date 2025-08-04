@@ -258,23 +258,6 @@ static char *turnedOnMicrowavePixels =
 ;
 
 
-@interface ManiacMansionMicrowaveIcon : IvarObject
-{
-    BOOL _needsRedraw;
-    int _backgroundClock;
-    int _open;
-    int _on;
-    id _userObject;
-
-    id _path;
-    BOOL _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _buttonDownTimestamp;
-
-    id _dragX11Dict;
-}
-@end
 @implementation ManiacMansionMicrowaveIcon
 - (int)preferredWidth
 {

@@ -171,16 +171,6 @@ exit(1);
 }
 @end
 
-@interface MacColorDesktop : IvarObject
-{
-    id _observer;
-    time_t _timestamp;
-
-    id _selectionBox;
-    int _buttonDownRootX;
-    int _buttonDownRootY;
-}
-@end
 @implementation MacColorDesktop
 - (void)exit:(int)status
 {

@@ -681,37 +681,6 @@ static char *zeroWingPixels3 =
 }
 @end
 
-@interface ZeroWingChecklist : IvarObject
-{
-    id _colorizedFont;
-    id _defaultButtonLeftPixels;
-    id _defaultButtonMiddlePixels;
-    id _defaultButtonRightPixels;
-
-    int _iteration;
-    int _dialogMode;
-    id _text;
-    id _array;
-    BOOL _checked[MAX_CHECKBOXES];
-    Int4 _rect[MAX_CHECKBOXES];
-    char _down;
-    char _hover;
-    Int4 _okRect;
-    Int4 _cancelRect;
-    id _okText;
-    id _cancelText;
-    int _buttonDownX;
-    int _buttonDownY;
-    id _checkboxPixels;
-    id _checkboxSelectedPixels;
-    id _checkboxDownPixels;
-    int _returnKey;
-
-    int _scrollY;
-    int _minCheckboxY;
-    int _maxCheckboxY;
-}
-@end
 @implementation ZeroWingChecklist
 - (id)init
 {

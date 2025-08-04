@@ -129,11 +129,6 @@
 }
 @end
 
-@interface ExposeRootWindow : IvarObject
-{
-    id _oldRootWindowObject;
-}
-@end
 @implementation ExposeRootWindow
 - (void)unmapIrrelevantWindows
 {
@@ -280,8 +275,6 @@
 @end
 
 
-@interface ExposeWindow : IvarObject
-@end
 @implementation ExposeWindow
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r context:(id)context
 {

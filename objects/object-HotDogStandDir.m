@@ -130,58 +130,6 @@ static id builtinControlPanel =
 
 
 
-@interface HotDogStandDir : IvarObject
-{
-    BOOL _doNotUpdate;
-    time_t _timestamp;
-    id _array;
-    id _buttonDown;
-    id _buttonHover;
-    int _buttonDownOffsetX;
-    int _buttonDownOffsetY;
-    id _buttonDownTimestamp;
-    Int4 _leftArrowRect;
-    Int4 _rightArrowRect;
-    Int4 _upArrowRect;
-    Int4 _downArrowRect;
-
-    Int4 _titleBarRect;
-    Int4 _closeButtonRect;
-    Int4 _lowerButtonRect;
-    Int4 _raiseButtonRect;
-    Int4 _titleTextRect;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownW;
-    int _buttonDownH;
-
-    double _diskFreePct;
-    int _horizontalKnobX;
-    int _horizontalKnobW;
-    int _horizontalKnobVal;
-    int _horizontalKnobMaxVal;
-    int _verticalKnobY;
-    int _verticalKnobH;
-    int _verticalKnobVal;
-    int _verticalKnobMaxVal;
-
-    int _contentXMin;
-    int _contentXMax;
-    int _contentYMin;
-    int _contentYMax;
-    int _visibleX;
-    int _visibleY;
-    int _visibleW;
-    int _visibleH;
-
-    id _title;
-
-    id _dragX11Dict;
-
-    id _path;
-    int _iteration;
-}
-@end
 @implementation HotDogStandDir
 - (int)preferredWidth
 {

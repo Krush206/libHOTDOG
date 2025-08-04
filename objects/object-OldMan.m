@@ -66,18 +66,6 @@ static id oldManMenuItemPixels =
 }
 @end
 
-@interface OldMan : IvarObject
-{
-    int _iteration;
-    int _mouseDown;
-    id _oldManPixels;
-    int _oldManWidth;
-    int _oldManHeight;
-    id _scaledFont;
-    id _text;
-    int _scrollY;
-}
-@end
 @implementation OldMan
 - (id)init
 {

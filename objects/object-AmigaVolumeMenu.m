@@ -89,22 +89,6 @@ static char *sliderKnobPixels =
 ;
 
 
-@interface AmigaVolumeMenu : IvarObject
-{
-    id _alsaCardName;
-    id _alsaMixerName;
-    id _alsaStatus;
-    id _alsaVolume;
-    double _volume;
-    int _playbackSwitch;
-    double _grabbedSliderPct;
-    int _mouseX;
-    int _mouseY;
-    Int4 _rectForVolumeSliderTrack;
-    Int4 _rectForVolumeSliderKnob;
-    int _grabbedVolumeSliderY;
-}
-@end
 @implementation AmigaVolumeMenu
 
 - (void)setup

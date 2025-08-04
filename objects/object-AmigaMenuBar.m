@@ -101,31 +101,6 @@ static char *titleBarRaiseButtonPixels =
 ;
 
 
-@interface AmigaMenuBar : IvarObject
-{
-    id _configPath;
-    time_t _configTimestamp;
-    int _flashIteration;
-    int _flashIndex;
-    BOOL _buttonDown;
-    BOOL _rightButtonDown;
-    id _selectedDict;
-    id _menuDict;
-    id _array;
-
-    // setPixelScaling:
-    int _pixelScaling;
-    id _scaledFont;
-    id _textBackgroundPixels;
-    id _titleBarRaiseButtonPixels;
-    id _titleBarLowerButtonPixels;
-
-    unsigned long _appMenuWindow;
-    int _appMenuWindowX;
-    int _appMenuWindowY;
-    unsigned long _menuWindowWaitForUnmapNotify;
-}
-@end
 
 @implementation AmigaMenuBar
 

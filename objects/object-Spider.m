@@ -182,37 +182,6 @@ static char *card_icon =
 }
 @end
 
-@interface Spider : IvarObject
-{
-    int _deckX;
-    int _deckY;
-    int _pileX[NUMBER_OF_PILES];
-    int _pileY[NUMBER_OF_PILES];
-    int _cardID[NUMBER_OF_CARDS];
-    int _cardX[NUMBER_OF_CARDS];
-    int _cardY[NUMBER_OF_CARDS];
-    int _cardWidth[NUMBER_OF_CARDS];
-    int _cardHeight[NUMBER_OF_CARDS];
-    int _buttonDown;
-    int _buttonDownX;
-    int _buttonDownY;
-    int _buttonDownOffsetX;
-    int _buttonDownOffsetY;
-    int _animateIndex;
-    int _animateMaxIndex;
-    int _animateIteration;
-    int _animateMaxIteration;
-    int _animateCard[NUMBER_OF_CARDS];
-    int _animateFromX[NUMBER_OF_CARDS];
-    int _animateFromY[NUMBER_OF_CARDS];
-    int _animateToX[NUMBER_OF_CARDS];
-    int _animateToY[NUMBER_OF_CARDS];
-    int _completeX;
-    int _completeY;
-    BOOL _showOverlayText;
-    id _bitmap;
-}
-@end
 @implementation Spider
 - (id)contextualMenu
 {

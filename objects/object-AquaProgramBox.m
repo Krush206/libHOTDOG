@@ -208,21 +208,6 @@ static unsigned char blue_button_right[] = {
 };
 
 
-@interface AquaProgramBox : IvarObject
-{
-    char _separator;
-    BOOL _eof;
-    id _text;
-    id _line;
-    int _returnKeyDown;
-    Int4 _okRect;
-    id _okText;
-    char _buttonDown;
-    char _buttonHover;
-    int _dialogMode;
-    id _partialLine;
-}
-@end
 @implementation AquaProgramBox
 - (int)preferredWidth
 {

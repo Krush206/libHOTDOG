@@ -118,32 +118,6 @@ static uint64_t osx_clock()
 }
 @end
 
-@interface Stopwatch : IvarObject
-{
-    Int4 _elapsedTextRect;
-    Int4 _lapTextRect;
-    Int4 _startButtonRect;
-    Int4 _resetButtonRect;
-#if defined(BUILD_FOR_LINUX) || defined(BUILD_FOR_FREEBSD)
-    struct timespec _startTime;
-    struct timespec _endTime;
-    struct timespec _lapTime;
-#endif
-#ifdef BUILD_FOR_OSX
-    uint64_t _startTime;
-    uint64_t _endTime;
-    uint64_t _lapTime;
-#endif
-#ifdef BUILD_FOR_IOS
-    CFTimeInterval _startTime;
-    CFTimeInterval _endTime;
-    CFTimeInterval _lapTime;
-#endif
-    double _cumulativeTime;
-    double _cumulativeLapTime;
-    BOOL _resetButtonDown;
-}
-@end
 @implementation Stopwatch
 
 - (int)preferredWidth
