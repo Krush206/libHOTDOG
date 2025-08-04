@@ -21,7 +21,8 @@ file do: [ :i |
       ].
     ].
     i remove.
-    newFile := FileStream open: ((File name: (i name)) name).
+    i touch.
+    newFile := FileStream open: (i name).
     newData do: [ :i |
       newFile nextPutAll: (i, (Character nl asString)).
     ].

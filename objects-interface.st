@@ -9,15 +9,13 @@ file do: [ :i |
     data := i contents.
     data linesDo: [ :i |
       i ~ '^@interface' ifTrue: [
-        i displayNl.
         print := true.
-      ] ifFalse: [
-        print ifTrue: [
-          i displayNl.
-        ].
-        i ~ '^@end' ifTrue: [
-          print := false.
-        ].
+      ].
+      print ifTrue: [
+        i displayNl.
+      ].
+      i ~ '^@end' ifTrue: [
+        print := false.
       ].
     ].
   ].
