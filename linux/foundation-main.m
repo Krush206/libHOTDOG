@@ -4,20 +4,56 @@
 #import "HOTDOG-objects.h"
 
 @interface CustomDiskIcon: AtariSTDiskIcon
+{
+  Int4 _rect, *_rectPtr;
+}
+
+- (id) init;
+- (void) handleMouseDown: (id) event;
 - (void) handleDoubleClick;
 @end
 
 @interface CustomWindow: AtariSTWindow
 {
-  id _diskIcon, _window;
-  Int4 _diskRect;
+  id _obj;
+  unsigned int _total;
 }
 
+- (id) init;
 - (void) handleMouseDown: (id) event;
 - (void) drawInBitmap: (id) bitmap rect: (Int4) r context: (id) context;
 @end
 
 @implementation CustomDiskIcon
+- (id) init
+{
+  self = [super init];
+  if(self != nil)
+  {
+    _rect.w = [self preferredWidth];
+    _rect.h = [self preferredHeight];
+    _rectPtr = &_rect;
+  }
+  return self;
+}
+
+- (void) handleMouseDown: (id) event
+{
+  int mouseX, mouseY;
+
+  mouseX = [event intValueForKey: @"mouseX"];
+  mouseY = [event intValueForKey: @"mouseY"];
+  if([Definitions isX: mouseX y: mouseY insideRect: _rect])
+    [super handleMouseDown: event];
+  else
+  {
+    id x11dict;
+    
+    x11dict = [event valueForKey: @"x11dict"];
+    [x11dict setValue: @"0" forKey: @"isSelected"];
+  }
+}
+
 - (void) handleDoubleClick
 {
   printf("OK\n");
@@ -30,39 +66,50 @@
   self = [super init];
   if(self != nil)
   {
-    _diskIcon = [@"CustomDiskIcon" asInstance];
-    [_diskIcon setValue: @"OK" forKey: @"path"];
-    _diskRect.w = [_diskIcon preferredWidth] / 2;
-    _diskRect.h = [_diskIcon preferredHeight];
-    _diskRect.x = 50;
-    _diskRect.y = 50;
+    id icon;
+    Int4 *rect;
+
+    _obj = nsarr();
+    icon = [@"CustomDiskIcon" asInstance];
+    [icon setValue: @"Test" forKey: @"path"];
+    rect = (Int4 *) [icon pointerValueForKey: @"rectPtr"];
+    rect->x = 50;
+    rect->y = 50;
+    [_obj addObject: icon];
+    _total = [_obj count];
   }
   return self;
 }
 
 - (void) handleMouseDown: (id) event
 {
-  int mouseX, mouseY;
+  unsigned int i;
 
-  mouseX = [event intValueForKey: @"mouseX"];
-  mouseY = [event intValueForKey: @"mouseY"];
   [super handleMouseDown: event];
-  if([Definitions isX: mouseX y: mouseY insideRect: _diskRect])
-    [_diskIcon handleMouseDown: event];
-  else
-    [_window setNilValueForKey: @"isSelected"];
+  for(i = 0; i < _total; i++)
+    [[_obj nth: i] handleMouseDown: event];
 }
 
 - (void) drawInBitmap: (id) bitmap rect: (Int4) r context: (id) context
 {
+  unsigned int i;
+
   [super drawInBitmap: bitmap rect: r context: context];
-  [_diskIcon drawInBitmap: bitmap rect: _diskRect context: context];
+  for(i = 0; i < _total; i++)
+  {
+    id obj;
+
+    obj = [_obj nth: i];
+    [obj drawInBitmap: bitmap
+         rect: *(Int4 *) [obj pointerValueForKey: @"rectPtr"]
+         context: context];
+  }
 }
 @end
 
 int main(void)
 {
-  id windowManager, atariWindow, window, pool, diskIcon;
+  id windowManager, atariWindow, window, pool;
   
   pool = [[NSAutoreleasePool alloc] init];
   HOTDOG_initialize_stdout(stdout);
@@ -74,7 +121,6 @@ int main(void)
                           y: 0
                           w: 500
                           h: 500];
-  [atariWindow setValue: window forKey: @"window"];
   [windowManager runLoop];
   [pool drain];
 }
