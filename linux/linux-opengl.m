@@ -29,9 +29,6 @@
 
 #include <stdio.h>
 
-#include <GL/gl.h>
-#include <GL/glx.h>
-
 @implementation Definitions(fjkdsjflkjdsklfj)
 + (BOOL)hasOpenGL
 {

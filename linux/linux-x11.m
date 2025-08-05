@@ -33,11 +33,6 @@
 #include <sys/wait.h>
 #include <stdio.h>
 #include <signal.h>
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
-#include <X11/keysym.h>
-#include <X11/cursorfont.h>
-#include <X11/extensions/shape.h>
 
 static XImage *CreateTrueColorImage(Display *display, Visual *visual, unsigned char *image, int width, int height, int depth)
 {
