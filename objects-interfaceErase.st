@@ -11,18 +11,16 @@ file do: [ :i |
     data linesDo: [ :i |
       i ~ '^@interface' ifTrue: [
         skip := true.
-      ] ifFalse: [
-        skip ifFalse: [
-          newData := newData, (Array with: i).
-        ].
-        i ~ '^@end' ifTrue: [
-          skip := false.
-        ].
+      ].
+      skip ifFalse: [
+        newData := newData, (Array with: i).
+      ].
+      i ~ '^@end' ifTrue: [
+        skip := false.
       ].
     ].
-    i remove.
-    i touch.
     newFile := FileStream open: (i name).
+    newFile := newFile truncate.
     newData do: [ :i |
       newFile nextPutAll: (i, (Character nl asString)).
     ].
