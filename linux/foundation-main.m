@@ -3,6 +3,11 @@
 #import "HOTDOG-linux.h"
 #import "HOTDOG-objects.h"
 
+static union {
+  id rectIdValue;
+  Int4 *rectInt4Value;
+} rect;
+
 @interface CustomDiskIcon: AtariSTDiskIcon
 {
   Int4 _rect, *_rectPtr;
@@ -67,14 +72,13 @@
   if(self != nil)
   {
     id icon;
-    Int4 *rect;
 
     _obj = nsarr();
     icon = [@"CustomDiskIcon" asInstance];
     [icon setValue: @"Test" forKey: @"path"];
-    rect = (Int4 *) [icon pointerValueForKey: @"rectPtr"];
-    rect->x = 50;
-    rect->y = 50;
+    rect.rectIdValue = [icon pointerValueForKey: @"rectPtr"];
+    rect.rectInt4Value->x = 50;
+    rect.rectInt4Value->y = 50;
     [_obj addObject: icon];
     _total = [_obj count];
   }
@@ -100,9 +104,8 @@
     id obj;
 
     obj = [_obj nth: i];
-    [obj drawInBitmap: bitmap
-         rect: *(Int4 *) [obj pointerValueForKey: @"rectPtr"]
-         context: context];
+    rect.rectIdValue = [obj pointerValueForKey: @"rectPtr"];
+    [obj drawInBitmap: bitmap rect: *rect.rectInt4Value context: context];
   }
 }
 @end

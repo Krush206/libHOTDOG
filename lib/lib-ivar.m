@@ -25,6 +25,27 @@
 
 #import "HOTDOG.h"
 
+static union {
+    id *ivarIdPtr;
+    char *ivarCharPtr;
+    Int4 *ivarInt4Ptr;
+    int *ivarIntPtr;
+    unsigned int *ivarUnsignedIntPtr;
+    unsigned char *ivarUnsignedCharPtr;
+    unsigned long *ivarUnsignedLongPtr;
+    unsigned long long *ivarUnsignedLongLongPtr;
+    long long *ivarLongLongPtr;
+    double *ivarDoublePtr;
+    _Bool *ivarBoolPtr;
+    void **ivarVoidPtr;
+} ivarPtr;
+
+static union {
+    id selfIdPtr,
+       *selfIdPtrPtr;
+    char *selfCharPtr;
+} selfPtr;
+
 #ifdef BUILD_FOUNDATION
 #else
 @implementation NSString(dsjfkljsdkfjsdlkjfk)
@@ -67,11 +88,15 @@ NSLog(@"ERROR! NSObject class not found");
             for (int i=0; i<outCount; i++) {
                 char *type = ivar_getTypeEncoding(ivars[i]);
                 if (*type == '@') {
-                    char *ivarPtr = ((char *)self) + ivar_getOffset(ivars[i]);
-                    id val = *((id *)ivarPtr);
+                    char *ivarPtr;
+		    id val;
+
+		    selfPtr.selfIdPtr = self;
+		    ivarPtr = selfPtr.selfCharPtr + ivar_getOffset(ivars[i]);
+		    val = *selfPtr.selfIdPtrPtr;
                     if (val) {
                         [val autorelease];
-                        *((id *)ivarPtr) = 0;
+                        *selfPtr.selfIdPtrPtr = 0;
                     }
                 }
             }
@@ -103,8 +128,9 @@ NSLog(@"ERROR! NSObject class not found");
             for (int i=0; i<outCount; i++) {
                 char *type = ivar_getTypeEncoding(ivars[i]);
                 if (*type == '@') {
-                    char *ivarPtr = ((char *)self) + ivar_getOffset(ivars[i]);
-                    *((id *)ivarPtr) = 0;
+                    selfPtr.selfIdPtr = self;
+                    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivars[i]);
+                    *ivarPtr.ivarIdPtr = 0;
                 }
             }
             free(ivars);
@@ -141,9 +167,10 @@ NSLog(@"setDoubleValue:forKey: unknown ivar '%s' self %@", ivarName, self);
         return;
     }
     char *ivarType = ivar_getTypeEncoding(ivar);
-    char *ivarPtr = ((char *)self) + ivar_getOffset(ivar);
+    selfPtr.selfIdPtr = self;
+    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivar);
     if (ivarType[0] == '^') {
-        *((void **)ivarPtr) = pointerval;
+        *ivarPtr.ivarVoidPtr = pointerval;
     } else {
 NSLog(@"setPointerValue:'%p' forKey:'%@' unhandled ivar type '%s'", pointerval, key, ivarType);
         exit(0);
@@ -164,9 +191,10 @@ NSLog(@"setDoubleValue:forKey: unknown ivar '%s' self %@", ivarName, self);
         return;
     }
     char *ivarType = ivar_getTypeEncoding(ivar);
-    char *ivarPtr = ((char *)self) + ivar_getOffset(ivar);
+    selfPtr.selfIdPtr = self;
+    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivar);
     if (ivarType[0] == 'd') {
-        *((double *)ivarPtr) = doubleval;
+        *ivarPtr.ivarDoublePtr = doubleval;
     } else {
 NSLog(@"setDoubleValue:'%f' forKey:'%@' unhandled ivar type '%s'", doubleval, key, ivarType);
         exit(0);
@@ -187,39 +215,40 @@ NSLog(@"setValue:forKey: unknown ivar '%s' self %@", ivarName, self);
         return;
     }
     char *ivarType = ivar_getTypeEncoding(ivar);
-    char *ivarPtr = ((char *)self) + ivar_getOffset(ivar);
+    selfPtr.selfIdPtr = self;
+    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivar);
     if (ivarType[0] == '@') {
         [val retain];
-        [*((id *)ivarPtr) autorelease];
-        *((id *)ivarPtr) = val;
+        [*ivarPtr.ivarIdPtr autorelease];
+        *ivarPtr.ivarIdPtr = val;
     } else if (ivarType[0] == 'i') {
         int intval = [val intValue];
-        *((int *)ivarPtr) = intval;
+        *ivarPtr.ivarIntPtr = intval;
     } else if (ivarType[0] == 'I') {
         unsigned int uintval = [val unsignedIntValue];
-        *((unsigned int *)ivarPtr) = uintval;
+        *ivarPtr.ivarUnsignedIntPtr = uintval;
     } else if (ivarType[0] == 'd') {
         double doubleval = [val doubleValue];
-        *((double *)ivarPtr) = doubleval;
+        *ivarPtr.ivarDoublePtr = doubleval;
     } else if (ivarType[0] == 'q') {
         long long longlongval = [val longLongValue];
-        *((long long *)ivarPtr) = longlongval;
+        *ivarPtr.ivarLongLongPtr = longlongval;
     } else if (ivarType[0] == 'C') {
         unsigned char ucharval = [val unsignedCharValue];
-        *((unsigned char *)ivarPtr) = ucharval;
+        *ivarPtr.ivarUnsignedCharPtr = ucharval;
     } else if (ivarType[0] == 'c') {
         char charval = [val intValue];
-        *((char *)ivarPtr) = charval;
+        *ivarPtr.ivarCharPtr = charval;
     } else if (ivarType[0] == 'B') {
         int intval = [val intValue];
         if (intval) {
-            *((_Bool *)ivarPtr) = 1;
+            *ivarPtr.ivarBoolPtr = 1;
         } else {
-            *((_Bool *)ivarPtr) = 0;
+            *ivarPtr.ivarBoolPtr = 0;
         }
     } else if (ivarType[0] == 'Q') {
         unsigned long long unsignedlonglongval = [val unsignedLongLongValue];
-        *((unsigned long long *)ivarPtr) = unsignedlonglongval;
+        *ivarPtr.ivarUnsignedLongLongPtr = unsignedlonglongval;
     } else {
 NSLog(@"setValue:'%@' forKey:'%@' unhandled ivar type '%s'", val, key, ivarType);
         exit(0);
@@ -240,9 +269,10 @@ NSLog(@"doubleValueForIvar: unknown ivar '%s' self %@", ivarName, self);
         return 0.0;
     }
     char *ivarType = ivar_getTypeEncoding(ivar);
-    char *ivarPtr = ((char *)self) + ivar_getOffset(ivar);
+    selfPtr.selfIdPtr = self;
+    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivar);
     if (ivarType[0] == 'd') {
-        return *((double *)ivarPtr);
+        return *ivarPtr.ivarDoublePtr;
     } else {
 NSLog(@"doubleValueForIvar:'%@' unhandled ivar type '%s'", key, ivarType);
         exit(0);
@@ -277,9 +307,10 @@ NSLog(@"key name '%@' too long", key);
         return NULL;
     }
     char *ivarType = ivar_getTypeEncoding(ivar);
-    char *ivarPtr = ((char *)self) + ivar_getOffset(ivar);
+    selfPtr.selfIdPtr = self;
+    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivar);
     if (ivarType[0] == '^') {
-        return *((void **)ivarPtr);
+        return *ivarPtr.ivarVoidPtr;
     } else {
 NSLog(@"valueForIvar:'%@' unhandled ivar type '%s'", key, ivarType);
         exit(0);
@@ -302,32 +333,33 @@ NSLog(@"key name '%@' too long", key);
         return nil;
     }
     char *ivarType = ivar_getTypeEncoding(ivar);
-    char *ivarPtr = ((char *)self) + ivar_getOffset(ivar);
+    selfPtr.selfIdPtr = self;
+    ivarPtr.ivarCharPtr = selfPtr.selfCharPtr + ivar_getOffset(ivar);
     if (ivarType[0] == '@') {
-        return *((id *)ivarPtr);
+        return *ivarPtr.ivarIdPtr;
     } else if (ivarType[0] == 'i') {
-        return nsfmt(@"%d", *((int *)ivarPtr));
+        return nsfmt(@"%d", *ivarPtr.ivarIntPtr);
     } else if (ivarType[0] == 'I') {
-        return nsfmt(@"%u", *((unsigned int *)ivarPtr));
+        return nsfmt(@"%u", *ivarPtr.ivarUnsignedIntPtr);
     } else if (ivarType[0] == 'd') {
-        return nsfmt(@"%f", *((double *)ivarPtr));
+        return nsfmt(@"%f", *ivarPtr.ivarDoublePtr);
     } else if (ivarType[0] == 'q') {
-        return nsfmt(@"%lld", *((long long *)ivarPtr));
+        return nsfmt(@"%lld", *ivarPtr.ivarLongLongPtr);
     } else if (ivarType[0] == 'C') {
-        return nsfmt(@"%d", *((unsigned char *)ivarPtr));
+        return nsfmt(@"%d", *ivarPtr.ivarUnsignedCharPtr);
     } else if (ivarType[0] == 'c') {
-        return nsfmt(@"%d", *((char *)ivarPtr));
+        return nsfmt(@"%d", *ivarPtr.ivarCharPtr);
     } else if (ivarType[0] == 'B') {
-        return nsfmt(@"%d", (*((_Bool *)ivarPtr)) ? 1 : 0);
+        return nsfmt(@"%d", *ivarPtr.ivarBoolPtr ? 1 : 0);
     } else if (!strcmp(ivarType, "{Int4=iiii}")) {
-        Int4 *r = (Int4 *)ivarPtr;
+        Int4 *r = ivarPtr.ivarInt4Ptr;
         return nsfmt(@"%d %d %d %d", r->x, r->y, r->w, r->h);
     } else if (!strcmp(ivarType, "^d")) {
-        return nsfmt(@"%p", ivarPtr);
+        return nsfmt(@"%p", ivarPtr.ivarCharPtr);
     } else if (ivarType[0] == 'L') {
-        return nsfmt(@"%lu", *((unsigned long *)ivarPtr));
+        return nsfmt(@"%lu", *ivarPtr.ivarUnsignedLongPtr);
     } else if (ivarType[0] == 'Q') {
-        return nsfmt(@"%llu", *((unsigned long long *)ivarPtr));
+        return nsfmt(@"%llu", *ivarPtr.ivarUnsignedLongLongPtr);
     } else {
 NSLog(@"valueForIvar:'%@' unhandled ivar type '%s'", key, ivarType);
         exit(0);
