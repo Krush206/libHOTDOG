@@ -876,7 +876,7 @@ NSLog(@"reparentWindow:%lu name %@", win, name);
         propdata[1] = rightBorder;
         propdata[2] = topBorder;
         propdata[3] = bottomBorder;
-        XChangeProperty(_display, win, XInternAtom(_display, "_NET_FRAME_EXTENTS", False), XA_CARDINAL, 32, PropModeReplace, &propdata[0], 4);
+        XChangeProperty(_display, win, XInternAtom(_display, "_NET_FRAME_EXTENTS", False), XA_CARDINAL, 32, PropModeReplace, (unsigned char *)&propdata[0], 4);
     }
     XSelectInput(_display, win, PointerMotionMask|PropertyChangeMask);
     XReparentWindow(_display, win, objectWindow, leftBorder, topBorder);
@@ -1272,10 +1272,12 @@ NSLog(@"unparent object %@", dict);
     setAttrs.border_pixel = 0;
     unsigned long attrFlags = CWColormap|CWEventMask|CWBackPixmap|CWBorderPixel;
     if (!_isWindowManager) {
-        if (overrideRedirect) {
-            setAttrs.override_redirect = True;
-            attrFlags |= CWOverrideRedirect;
-        }
+        // When used as a library there is no window manager of our own, and
+        // we don't want the running window manager to handle (decorate) our
+        // windows either: always create them override-redirect (no title bar).
+        (void)overrideRedirect;
+        setAttrs.override_redirect = True;
+        attrFlags |= CWOverrideRedirect;
     }
     Window win = XCreateWindow(_display, _rootWindow, x, y, w, h, 0, _visualInfo.depth, InputOutput, _visualInfo.visual, attrFlags, &setAttrs);
 
@@ -1308,6 +1310,12 @@ NSLog(@"unparent object %@", dict);
 
     XMapWindow(_display, win);
 
+    if (!_isWindowManager) {
+        // The window is override-redirect, so no window manager will give it
+        // keyboard focus. Focus it directly so key events are delivered.
+        [self XSetInputFocus:win];
+    }
+
     return win;
 }
 - (unsigned long)openUnmappedWindowWithName:(id)name x:(int)x y:(int)y w:(int)w h:(int)h overrideRedirect:(BOOL)overrideRedirect propertyName:(char *)propertyName
@@ -1324,10 +1332,11 @@ NSLog(@"unparent object %@", dict);
     setAttrs.border_pixel = 0;
     unsigned long attrFlags = CWColormap|CWEventMask|CWBackPixmap|CWBorderPixel;
     if (!_isWindowManager) {
-        if (overrideRedirect) {
-            setAttrs.override_redirect = True;
-            attrFlags |= CWOverrideRedirect;
-        }
+        // Same as openWindowWithName: in library mode the windows must not be
+        // handled (decorated) by the running window manager.
+        (void)overrideRedirect;
+        setAttrs.override_redirect = True;
+        attrFlags |= CWOverrideRedirect;
     }
     Window win = XCreateWindow(_display, _rootWindow, x, y, w, h, 0, _visualInfo.depth, InputOutput, _visualInfo.visual, attrFlags, &setAttrs);
 
@@ -1545,7 +1554,7 @@ if ([monitor intValueForKey:@"height"] == 768) {
                     }
                 }
                 if ([object respondsToSelector:@selector(pixelBytesBGR565)]) {
-                    unsigned char *pixelBytes = [object pixelBytesBGR565];
+                    uint16_t *pixelBytes = (uint16_t *)[object pixelBytesBGR565];
                     if (pixelBytes) {
                         int bitmapWidth = [object bitmapWidth];
                         int bitmapHeight = [object bitmapHeight];
@@ -1874,7 +1883,7 @@ NSLog(@"MapNotify event");
                         && event.xclient.data.l[0] == XInternAtom(_display, "WM_DELETE_WINDOW", 1))
                     {
                         exit(1);
-                        XClientMessageEvent *e = &event;
+                        XClientMessageEvent *e = &event.xclient;
                         id dict = [self dictForObjectWindow:e->window];
 NSLog(@"ClientMessage event %lu %@", e->window, dict);
                         [dict setValue:@"1" forKey:@"shouldCloseWindow"];
@@ -2656,7 +2665,7 @@ NSLog(@"_desktopWindow %lu", _desktopWindow);
                 if (_isWindowManager) {
                     [self setFocusDict:nil];
                     e->window = _desktopWindow;
-                    XSendEvent(_display, _desktopWindow, False, ButtonPressMask, e);
+                    XSendEvent(_display, _desktopWindow, False, ButtonPressMask, (XEvent *)e);
                     [self setValue:nsdict() forKey:@"buttonDownDict"];
                     _buttonDownWhich = e->button;
                 }
@@ -2673,6 +2682,14 @@ NSLog(@"_desktopWindow %lu", _desktopWindow);
     {
         id dict = [self dictForObjectWindow:e->window];
         if (dict) {
+            if (!_isWindowManager) {
+                // No window manager is handling our windows, so implement
+                // click-to-focus (and raise on click) ourselves.
+                if ((e->button == 1) || (e->button == 3)) {
+                    [self raiseObjectWindow:dict];
+                }
+                [self XSetInputFocus:e->window];
+            }
 //only set for left button down and right button down
 //           [self setValue:dict forKey:@"buttonDownDict"];
 //            _buttonDownWhich = e->button;
@@ -2796,7 +2813,7 @@ NSLog(@"ButtonRelease window %x e->button %d _buttonDownWhich %d", e->window, e-
             if (e->window == _rootWindow) {
                 if (e->button == 1) {
                     e->window = _desktopWindow;
-                    XSendEvent(_display, _desktopWindow, False, ButtonReleaseMask, e);
+                    XSendEvent(_display, _desktopWindow, False, ButtonReleaseMask, (XEvent *)e);
                     [self setValue:nil forKey:@"buttonDownDict"];
                     _buttonDownWhich = 0;
                     return;
@@ -2848,7 +2865,7 @@ NSLog(@"ButtonRelease window %x e->button %d _buttonDownWhich %d", e->window, e-
                 if (e->window == _rootWindow) {
                     if (_buttonDownWhich == 1) {
                         e->window = _desktopWindow;
-                        XSendEvent(_display, _desktopWindow, False, PointerMotionMask, e);
+                        XSendEvent(_display, _desktopWindow, False, PointerMotionMask, (XEvent *)e);
                         return;
                     }
                 }
