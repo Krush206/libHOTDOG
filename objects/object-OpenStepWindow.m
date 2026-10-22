@@ -313,7 +313,7 @@ static char *closeButtonDownPixels =
 
     id obj;
     obj = [Definitions scaleFont:scaling
-                    :[Definitions arrayOfCStringsForWinSystemFont]
+                    :(unsigned char **)[Definitions arrayOfCStringsForWinSystemFont]
                     :[Definitions arrayOfWidthsForWinSystemFont]
                     :[Definitions arrayOfHeightsForWinSystemFont]
                     :[Definitions arrayOfXSpacingsForWinSystemFont]];
@@ -409,10 +409,10 @@ static char *closeButtonDownPixels =
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r context:(id)context
 {
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
 
     char *palette = _palette;
