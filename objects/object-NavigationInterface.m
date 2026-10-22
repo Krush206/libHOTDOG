@@ -896,7 +896,7 @@ NSLog(@"context %@", _context);
 
             if ([obj respondsToSelector:@selector(pixelBytesBGR565)]) {
                 if (![[@"windowManager" valueForKey] valueForKey:@"openGLTexture"]) {
-                    char *bytes = [obj pixelBytesBGR565];
+                    uint16_t *bytes = (uint16_t *)[obj pixelBytesBGR565];
                     if (bytes) {
                         int bitmapWidth = [obj bitmapWidth];
                         int bitmapHeight = [obj bitmapHeight];
