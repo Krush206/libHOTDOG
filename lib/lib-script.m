@@ -112,124 +112,124 @@ NSLog(@"Bad signature");
     signature[signatureIndex] = 0;
     if (signature[3] == 0) {
         if (signature[0] == 'v') {
-            void (*func)(id, SEL) = imp;
+            void (*func)(id, SEL) = (__typeof__(func))imp;
             func(target, sel);
             return target;
         } else if (signature[0] == '@') {
-            id (*func)(id, SEL) = imp;
+            id (*func)(id, SEL) = (__typeof__(func))imp;
             return func(target, sel);
         } else if (signature[0] == 'i') {
-            int (*func)(id, SEL) = imp;
+            int (*func)(id, SEL) = (__typeof__(func))imp;
             int val = func(target, sel);
             return nsfmt(@"%d", val);
         } else if (signature[0] == 'd') {
-            double (*func)(id, SEL) = imp;
+            double (*func)(id, SEL) = (__typeof__(func))imp;
             double val = func(target, sel);
             return nsfmt(@"%f", val);
         } else if (signature[0] == 'C') {
-            unsigned char (*func)(id, SEL) = imp;
+            unsigned char (*func)(id, SEL) = (__typeof__(func))imp;
             unsigned char val = func(target, sel);
             return nsfmt(@"%u", val);
         } else if (signature[0] == 'c') {
-            char (*func)(id, SEL) = imp;
+            char (*func)(id, SEL) = (__typeof__(func))imp;
             char val = func(target, sel);
             return nsfmt(@"%d", val);
         } else if (signature[0] == 'L') {
-            unsigned long (*func)(id, SEL) = imp;
+            unsigned long (*func)(id, SEL) = (__typeof__(func))imp;
             unsigned long val = func(target, sel);
             return nsfmt(@"%lu", val);
         } else if (signature[0] == 'B') {
-            _Bool (*func)(id, SEL) = imp;
+            _Bool (*func)(id, SEL) = (__typeof__(func))imp;
             _Bool val = func(target, sel);
             return (val) ? @"1" : @"0";
         } else if (signature[0] == 'Q') {
-            unsigned long long (*func)(id, SEL) = imp;
+            unsigned long long (*func)(id, SEL) = (__typeof__(func))imp;
             unsigned long long val = func(target, sel);
             return nsfmt(@"%llu", val);
         } else if (signature[0] == 'I') {
-            unsigned int (*func)(id, SEL) = imp;
+            unsigned int (*func)(id, SEL) = (__typeof__(func))imp;
             unsigned int val = func(target, sel);
             return nsfmt(@"%u", val);
         }
     } else if (signature[3] == '@') {
         if (signature[4] == 0) {
             if (signature[0] == 'v') {
-                void (*func)(id, SEL, id) = imp;
+                void (*func)(id, SEL, id) = (__typeof__(func))imp;
                 func(target, sel, [args nth:0]);
                 return target;
             } else if (signature[0] == '@') {
-                id (*func)(id, SEL, id) = imp;
+                id (*func)(id, SEL, id) = (__typeof__(func))imp;
                 return func(target, sel, [args nth:0]);
             } else if (signature[0] == 'i') {
-                int (*func)(id, SEL, id) = imp;
+                int (*func)(id, SEL, id) = (__typeof__(func))imp;
                 int val = func(target, sel, [args nth:0]);
                 return nsfmt(@"%d", val);
             } else if (signature[0] == 'C') {
-                unsigned char (*func)(id, SEL, id) = imp;
+                unsigned char (*func)(id, SEL, id) = (__typeof__(func))imp;
                 unsigned char val = func(target, sel, [args nth:0]);
                 return nsfmt(@"%u", val);
             } else if (signature[0] == 'c') {
-                char (*func)(id, SEL, id) = imp;
+                char (*func)(id, SEL, id) = (__typeof__(func))imp;
                 char val = func(target, sel, [args nth:0]);
                 return nsfmt(@"%d", val);
             } else if (signature[0] == 'B') {
-                _Bool (*func)(id, SEL, id) = imp;
+                _Bool (*func)(id, SEL, id) = (__typeof__(func))imp;
                 _Bool val = func(target, sel, [args nth:0]);
                 return (val) ? @"1" : @"0";
             }
         } else if (signature[4] == '@') {
             if (signature[5] == 0) {
                 if (signature[0] == 'v') {
-                    void (*func)(id, SEL, id, id) = imp;
+                    void (*func)(id, SEL, id, id) = (__typeof__(func))imp;
                     func(target, sel, [args nth:0], [args nth:1]);
                     return target;
                 } else if (signature[0] == '@') {
-                    id (*func)(id, SEL, id, id) = imp;
+                    id (*func)(id, SEL, id, id) = (__typeof__(func))imp;
                     return func(target, sel, [args nth:0], [args nth:1]);
                 } else if (signature[0] == 'C') {
-                    unsigned char (*func)(id, SEL, id, id) = imp;
+                    unsigned char (*func)(id, SEL, id, id) = (__typeof__(func))imp;
                     unsigned char val = func(target, sel, [args nth:0], [args nth:1]);
                     return nsfmt(@"%u", val);
                 }
             } else if (signature[5] == '@') {
                 if (signature[6] == 0) {
                     if (signature[0] == '@') {
-                        id (*func)(id, SEL, id, id, id) = imp;
+                        id (*func)(id, SEL, id, id, id) = (__typeof__(func))imp;
                         return func(target, sel, [args nth:0], [args nth:1], [args nth:2]);
                     } else if (signature[0] == 'v') {
-                        void (*func)(id, SEL, id, id, id) = imp;
+                        void (*func)(id, SEL, id, id, id) = (__typeof__(func))imp;
                         func(target, sel, [args nth:0], [args nth:1], [args nth:2]);
                         return target;
                     } else if (signature[0] == 'C') {
-                        unsigned char (*func)(id, SEL, id, id, id) = imp;
+                        unsigned char (*func)(id, SEL, id, id, id) = (__typeof__(func))imp;
                         unsigned char val = func(target, sel, [args nth:0], [args nth:1], [args nth:2]);
                         return nsfmt(@"%u", val);
                     }
                 } else if (signature[6] == '@') {
                     if (signature[7] == 0) {
                         if (signature[0] == 'v') {
-                            void (*func)(id, SEL, id, id, id, id) = imp;
+                            void (*func)(id, SEL, id, id, id, id) = (__typeof__(func))imp;
                             func(target, sel, [args nth:0], [args nth:1], [args nth:2], [args nth:3]);
                             return target;
                         } else if (signature[0] == '@') {
-                            id (*func)(id, SEL, id, id, id, id) = imp;
+                            id (*func)(id, SEL, id, id, id, id) = (__typeof__(func))imp;
                             return func(target, sel, [args nth:0], [args nth:1], [args nth:2], [args nth:3]);
                         }
                     } else if (signature[7] == '@') {
                         if (signature[8] == 0) {
                             if (signature[0] == 'v') {
-                                void (*func)(id, SEL, id, id, id, id, id) = imp;
+                                void (*func)(id, SEL, id, id, id, id, id) = (__typeof__(func))imp;
                                 func(target, sel, [args nth:0], [args nth:1], [args nth:2], [args nth:3], [args nth:4]);
                                 return target;
                             } else if (signature[0] == '@') {
-                                id (*func)(id, SEL, id, id, id, id, id) = imp;
+                                id (*func)(id, SEL, id, id, id, id, id) = (__typeof__(func))imp;
                                 return func(target, sel, [args nth:0], [args nth:1], [args nth:2], [args nth:3], [args nth:4]);
                             }
                         } else if (signature[8] == '@') {
                             if (signature[9] == '@') {
                                 if (signature[10] == 0) {
                                     if (signature[0] == '@') {
-                                        id (*func)(id, SEL, id, id, id, id, id, id, id) = imp;
+                                        id (*func)(id, SEL, id, id, id, id, id, id, id) = (__typeof__(func))imp;
                                         return func(target, sel, [args nth:0], [args nth:1], [args nth:2], [args nth:3], [args nth:4], [args nth:5], [args nth:6]);
                                     }
                                 }
@@ -238,7 +238,7 @@ NSLog(@"Bad signature");
                     } else if (signature[7] == 'i') {
                         if (signature[8] == 0) {
                             if (signature[0] == 'v') {
-                                void (*func)(id, SEL, id, id, id, id, int) = imp;
+                                void (*func)(id, SEL, id, id, id, id, int) = (__typeof__(func))imp;
                                 func(target, sel, [args nth:0], [args nth:1], [args nth:2], [args nth:3], [[args nth:4] intValue]);
                                 return target;
                             }
@@ -249,7 +249,7 @@ NSLog(@"Bad signature");
                         if (signature[8] == '@') {
                             if (signature[9] == 0) {
                                 if (signature[0] == '@') {
-                                    id (*func)(id, SEL, id, id, id, int, id, id) = imp;
+                                    id (*func)(id, SEL, id, id, id, int, id, id) = (__typeof__(func))imp;
                                     return func(target, sel, [args nth:0], [args nth:1], [args nth:2], [[args nth:3] intValue], [args nth:4], [args nth:5]);
                                 }
                             }
@@ -259,11 +259,11 @@ NSLog(@"Bad signature");
             } else if (signature[5] == 'i') {
                 if (signature[6] == 0) {
                     if (signature[0] == 'v') {
-                        void (*func)(id, SEL, id, id, int) = imp;
+                        void (*func)(id, SEL, id, id, int) = (__typeof__(func))imp;
                         func(target, sel, [args nth:0], [args nth:1], [[args nth:2] intValue]);
                         return target;
                     } else if (signature[0] == '@') {
-                        id (*func)(id, SEL, id, id, int) = imp;
+                        id (*func)(id, SEL, id, id, int) = (__typeof__(func))imp;
                         return func(target, sel, [args nth:0], [args nth:1], [[args nth:2] intValue]);
                     }
                 } else if (signature[6] == '@') {
@@ -272,7 +272,7 @@ NSLog(@"Bad signature");
                             if (signature[9] == '@') {
                                 if (signature[10] == 0) {
                                     if (signature[0] == '@') {
-                                        id (*func)(id, SEL, id, id, int, id, id, id, id) = imp;
+                                        id (*func)(id, SEL, id, id, int, id, id, id, id) = (__typeof__(func))imp;
                                         return func(target, sel, [args nth:0], [args nth:1], [[args nth:2] intValue], [args nth:3], [args nth:4], [args nth:5], [args nth:6]);
                                     }
                                 }
@@ -283,7 +283,7 @@ NSLog(@"Bad signature");
                     if (signature[7] == 'i') {
                         if (signature[8] == 0) {
                             if (signature[0] == '@') {
-                                id (*func)(id, SEL, id, id, int, int, int) = imp;
+                                id (*func)(id, SEL, id, id, int, int, int) = (__typeof__(func))imp;
                                 return func(target, sel, [args nth:0], [args nth:1], [[args nth:2] intValue], [[args nth:3] intValue], [[args nth:4] intValue]);
                             }
                         }
@@ -292,7 +292,7 @@ NSLog(@"Bad signature");
             } else if (signature[5] == 'C') {
                 if (signature[6] == 0) {
                     if (signature[0] == '@') {
-                        id (*func)(id, SEL, id, id, unsigned char) = imp;
+                        id (*func)(id, SEL, id, id, unsigned char) = (__typeof__(func))imp;
                         return func(target, sel, [args nth:0], [args nth:1], [[args nth:2] unsignedCharValue]);
                     }
                 }
@@ -300,21 +300,21 @@ NSLog(@"Bad signature");
         } else if (signature[4] == 'i') {
             if (signature[5] == 0) {
                 if (signature[0] == 'v') {
-                    void (*func)(id, SEL, id, int) = imp;
+                    void (*func)(id, SEL, id, int) = (__typeof__(func))imp;
                     func(target, sel, [args nth:0], [[args nth:1] intValue]);
                     return target;
                 } else if (signature[0] == '@') {
-                    id (*func)(id, SEL, id, int) = imp;
+                    id (*func)(id, SEL, id, int) = (__typeof__(func))imp;
                     return func(target, sel, [args nth:0], [[args nth:1] intValue]);
                 }
             } else if (signature[5] == 'i') {
                 if (signature[6] == 0) {
                     if (signature[0] == 'v') {
-                        void (*func)(id, SEL, id, int, int) = imp;
+                        void (*func)(id, SEL, id, int, int) = (__typeof__(func))imp;
                         func(target, sel, [args nth:0], [[args nth:1] intValue], [[args nth:2] intValue]);
                         return target;
                     } else if (signature[0] == 'L') {
-                        unsigned long (*func)(id, SEL, id, int, int) = imp;
+                        unsigned long (*func)(id, SEL, id, int, int) = (__typeof__(func))imp;
                         unsigned long val = func(target, sel, [args nth:0], [[args nth:1] intValue], [[args nth:2] intValue]);
                         return nsfmt(@"%lu", val);
                     }
@@ -322,11 +322,11 @@ NSLog(@"Bad signature");
                     if (signature[7] == 'i') {
                         if (signature[8] == 0) {
                             if (signature[0] == 'v') {
-                                void (*func)(id, SEL, id, int, int, int, int) = imp;
+                                void (*func)(id, SEL, id, int, int, int, int) = (__typeof__(func))imp;
                                 func(target, sel, [args nth:0], [[args nth:1] intValue], [[args nth:2] intValue], [[args nth:3] intValue], [[args nth:4] intValue]);
                                 return target;
                             } else if (signature[0] == '@') {
-                                id (*func)(id, SEL, id, int, int, int, int) = imp;
+                                id (*func)(id, SEL, id, int, int, int, int) = (__typeof__(func))imp;
                                 return func(target, sel, [args nth:0], [[args nth:1] intValue], [[args nth:2] intValue], [[args nth:3] intValue], [[args nth:4] intValue]);
                             }
                         }
@@ -338,7 +338,7 @@ NSLog(@"Bad signature");
                         if (signature[8] == '@') {
                             if (signature[9] == 0) {
                                 if (signature[0] == '@') {
-                                    id (*func)(id, SEL, id, int, id, id, id, id) = imp;
+                                    id (*func)(id, SEL, id, int, id, id, id, id) = (__typeof__(func))imp;
                                     return func(target, sel, [args nth:0], [[args nth:1] intValue], [args nth:2], [args nth:3], [args nth:4], [args nth:5]);
                                 }
                             }
@@ -349,14 +349,14 @@ NSLog(@"Bad signature");
         } else if (signature[4] == 'd') {
             if (signature[5] == 0) {
                 if (signature[0] == '@') {
-                    id (*func)(id, SEL, id, double) = imp;
+                    id (*func)(id, SEL, id, double) = (__typeof__(func))imp;
                     return func(target, sel, [args nth:0], [[args nth:1] doubleValue]);
                 }
             }
         } else if (signature[4] == 'l') {
             if (signature[5] == 0) {
                 if (signature[0] == 'c') {
-                    char (*func)(id, SEL, id, long) = imp;
+                    char (*func)(id, SEL, id, long) = (__typeof__(func))imp;
                     char val = func(target, sel, [args nth:0], [[args nth:1] longValue]);
                     return nsfmt(@"%d", val);
                 }
@@ -364,7 +364,7 @@ NSLog(@"Bad signature");
         } else if (signature[4] == 'q') {
             if (signature[5] == 0) {
                 if (signature[0] == 'B') {
-                    _Bool (*func)(id, SEL, id, long long) = imp;
+                    _Bool (*func)(id, SEL, id, long long) = (__typeof__(func))imp;
                     _Bool val = func(target, sel, [args nth:0], [[args nth:1] longLongValue]);
                     return (val) ? @"1" : @"0";
                 }
@@ -372,10 +372,10 @@ NSLog(@"Bad signature");
         } else if (signature[4] == 'C') {
             if (signature[5] == 0) {
                 if (signature[0] == '@') {
-                    id (*func)(id, SEL, id, unsigned char) = imp;
+                    id (*func)(id, SEL, id, unsigned char) = (__typeof__(func))imp;
                     return func(target, sel, [args nth:0], [[args nth:1] unsignedCharValue]);
                 } else if (signature[0] == 'v') {
-                    void (*func)(id, SEL, id, unsigned char) = imp;
+                    void (*func)(id, SEL, id, unsigned char) = (__typeof__(func))imp;
                     func(target, sel, [args nth:0], [[args nth:1] unsignedCharValue]);
                     return target;
                 }
@@ -383,14 +383,14 @@ NSLog(@"Bad signature");
                 if (signature[6] == '@') {
                     if (signature[7] == 0) {
                         if (signature[0] == 'v') {
-                            void (*func)(id, SEL, id, unsigned char, id, id) = imp;
+                            void (*func)(id, SEL, id, unsigned char, id, id) = (__typeof__(func))imp;
                             func(target, sel, [args nth:0], [[args nth:1] unsignedCharValue], [args nth:2], [args nth:3]);
                             return target;
                         }
                     } else if (signature[7] == '@') {
                         if (signature[8] == 0) {
                             if (signature[0] == 'v') {
-                                void (*func)(id, SEL, id, unsigned char, id, id, id) = imp;
+                                void (*func)(id, SEL, id, unsigned char, id, id, id) = (__typeof__(func))imp;
                                 func(target, sel, [args nth:0], [[args nth:1] unsignedCharValue], [args nth:2], [args nth:3], [args nth:4]);
                                 return target;
                             }
@@ -402,49 +402,49 @@ NSLog(@"Bad signature");
     } else if (signature[3] == 'i') {
         if (signature[4] == 0) {
             if (signature[0] == 'v') {
-                void (*func)(id, SEL, int) = imp;
+                void (*func)(id, SEL, int) = (__typeof__(func))imp;
                 func(target, sel, [[args nth:0] intValue]);
                 return target;
             } else if (signature[0] == '@') {
-                id (*func)(id, SEL, int) = imp;
+                id (*func)(id, SEL, int) = (__typeof__(func))imp;
                 return func(target, sel, [[args nth:0] intValue]);
             } else if (signature[0] == 'C') {
-                unsigned char (*func)(id, SEL, int) = imp;
+                unsigned char (*func)(id, SEL, int) = (__typeof__(func))imp;
                 unsigned char val = func(target, sel, [[args nth:0] intValue]);
                 return nsfmt(@"%u", val);
             } else if (signature[0] == 'i') {
-                int (*func)(id, SEL, int) = imp;
+                int (*func)(id, SEL, int) = (__typeof__(func))imp;
                 int val = func(target, sel, [[args nth:0] intValue]);
                 return nsfmt(@"%d", val);
             }
         } else if (signature[4] == 'i') {
             if (signature[5] == 0) {
                 if (signature[0] == '@') {
-                    id (*func)(id, SEL, int, int) = imp;
+                    id (*func)(id, SEL, int, int) = (__typeof__(func))imp;
                     return func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue]);
                 } else if (signature[0] == 'v') {
-                    void (*func)(id, SEL, int, int) = imp;
+                    void (*func)(id, SEL, int, int) = (__typeof__(func))imp;
                     func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue]);
                     return target;
                 } else if (signature[0] == 'C') {
-                    unsigned char (*func)(id, SEL, int, int) = imp;
+                    unsigned char (*func)(id, SEL, int, int) = (__typeof__(func))imp;
                     unsigned char val = func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue]);
                     return nsfmt(@"%d", val);
                 }
             } else if (signature[5] == 'i') {
                 if (signature[6] == 0) {
                     if (signature[0] == '@') {
-                        id (*func)(id, SEL, int, int, int) = imp;
+                        id (*func)(id, SEL, int, int, int) = (__typeof__(func))imp;
                         return func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue], [[args nth:2] intValue]);
                     }
                 } else if (signature[6] == 'i') {
                     if (signature[7] == 0) {
                         if (signature[0] == 'v') {
-                            void (*func)(id, SEL, int, int, int, int) = imp;
+                            void (*func)(id, SEL, int, int, int, int) = (__typeof__(func))imp;
                             func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue], [[args nth:2] intValue], [[args nth:3] intValue]);
                             return target;
                         } else if (signature[0] == '@') {
-                            id (*func)(id, SEL, int, int, int, int) = imp;
+                            id (*func)(id, SEL, int, int, int, int) = (__typeof__(func))imp;
                             return func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue], [[args nth:2] intValue], [[args nth:3] intValue]);
                         }
                     }
@@ -452,13 +452,13 @@ NSLog(@"Bad signature");
             } else if (signature[5] == '@') {
                 if (signature[6] == 0) {
                     if (signature[0] == '@') {
-                        id (*func)(id, SEL, int, int, id) = imp;
+                        id (*func)(id, SEL, int, int, id) = (__typeof__(func))imp;
                         return func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue], [args nth:2]);
                     }
                 } else if (signature[6] == '@') {
                     if (signature[7] == 0) {
                         if (signature[0] == '@') {
-                            id (*func)(id, SEL, int, int, id, id) = imp;
+                            id (*func)(id, SEL, int, int, id, id) = (__typeof__(func))imp;
                             return func(target, sel, [[args nth:0] intValue], [[args nth:1] intValue], [args nth:2], [args nth:3]);
                         }
                     }
@@ -467,16 +467,16 @@ NSLog(@"Bad signature");
         } else if (signature[4] == '@') {
             if (signature[5] == 0) {
                 if (signature[0] == 'v') {
-                    void (*func)(id, SEL, int, id) = imp;
+                    void (*func)(id, SEL, int, id) = (__typeof__(func))imp;
                     func(target, sel, [[args nth:0] intValue], [args nth:1]);
                     return target;
                 } else if (signature[0] == '@') {
-                    id (*func)(id, SEL, int, id) = imp;
+                    id (*func)(id, SEL, int, id) = (__typeof__(func))imp;
                     return func(target, sel, [[args nth:0] intValue], [args nth:1]);
                 }
             } else if (signature[5] == '@') {
                 if (signature[0] == '@') {
-                    id (*func)(id, SEL, int, id, id) = imp;
+                    id (*func)(id, SEL, int, id, id) = (__typeof__(func))imp;
                     return func(target, sel, [[args nth:0] intValue], [args nth:1], [args nth:2]);
                 }
             }
@@ -484,14 +484,14 @@ NSLog(@"Bad signature");
     } else if (signature[3] == 'L') {
         if (signature[4] == 0) {
             if (signature[0] == 'v') {
-                void (*func)(id, SEL, unsigned long) = imp;
+                void (*func)(id, SEL, unsigned long) = (__typeof__(func))imp;
                 func(target, sel, [[args nth:0] unsignedLongValue]);
                 return target;
             }
         } else if (signature[4] == 'i') {
             if (signature[5] == 0) {
                 if (signature[0] == 'v') {
-                    void (*func)(id, SEL, unsigned long, int) = imp;
+                    void (*func)(id, SEL, unsigned long, int) = (__typeof__(func))imp;
                     func(target, sel, [[args nth:0] unsignedLongValue], [[args nth:1] intValue]);
                     return target;
                 }
@@ -500,24 +500,24 @@ NSLog(@"Bad signature");
     } else if (signature[3] == 'd') {
         if (signature[4] == 0) {
             if (signature[0] == '@') {
-                id (*func)(id, SEL, double) = imp;
+                id (*func)(id, SEL, double) = (__typeof__(func))imp;
                 return func(target, sel, [[args nth:0] doubleValue]);
             } else if (signature[0] == 'C') {
-                unsigned char (*func)(id, SEL, double) = imp;
+                unsigned char (*func)(id, SEL, double) = (__typeof__(func))imp;
                 unsigned char val = func(target, sel, [[args nth:0] doubleValue]);
                 return nsfmt(@"%u", val);
             } else if (signature[0] == 'v') {
-                void (*func)(id, SEL, double) = imp;
+                void (*func)(id, SEL, double) = (__typeof__(func))imp;
                 func(target, sel, [[args nth:0] doubleValue]);
                 return target;
             }
         } else if (signature[4] == 'd') {
             if (signature[5] == 0) {
                 if (signature[0] == '@') {
-                    id (*func)(id, SEL, double, double) = imp;
+                    id (*func)(id, SEL, double, double) = (__typeof__(func))imp;
                     return func(target, sel, [[args nth:0] doubleValue], [[args nth:1] doubleValue]);
                 } else if (signature[0] == 'd') {
-                    double (*func)(id, SEL, double, double) = imp;
+                    double (*func)(id, SEL, double, double) = (__typeof__(func))imp;
                     double val = func(target, sel, [[args nth:0] doubleValue], [[args nth:1] doubleValue]);
                     return nsfmt(@"%f", val);
                 }
