@@ -27,6 +27,7 @@
 
 #ifndef _HOTDOG_OBJECTS_H
 #define _HOTDOG_OBJECTS_H 1
+#import "HOTDOG.h"
 #define MAX_CHECKBOXES 20
 #define MAX_RECT 640
 #define MAX_CENTIPEDE 20
