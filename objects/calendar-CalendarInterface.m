@@ -211,7 +211,7 @@ static int monthNameAsInt(id str)
         return;
     }
 
-    time_t timestamp = [@"." fileModificationTimestamp];
+    time_t timestamp = [(id)@"." fileModificationTimestamp];
     if (timestamp == _timestamp) {
         _seconds++;
         return;
