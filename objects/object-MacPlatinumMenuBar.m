@@ -149,7 +149,7 @@ static char *menuBarRightPixels =
 {
     _pixelScaling = scaling;
     id scaledFont = [Definitions scaleFont:scaling
-                        :[Definitions arrayOfCStringsForChicagoFont]
+                        :(unsigned char **)[Definitions arrayOfCStringsForChicagoFont]
                         :[Definitions arrayOfWidthsForChicagoFont]
                         :[Definitions arrayOfHeightsForChicagoFont]
                         :[Definitions arrayOfXSpacingsForChicagoFont]];
@@ -508,10 +508,10 @@ if (x+w+3 > monitorX+monitorWidth) {
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r
 {
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
 
     char *palette = menuBarPalette;
