@@ -27,6 +27,7 @@
 
 #ifndef _HOTDOG_LINUX_H
 #define _HOTDOG_LINUX_H 1
+#import "HOTDOG.h"
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 #include <X11/keysym.h>
