@@ -38,7 +38,7 @@
     id fontXSpacings = [[[NSData alloc] initWithCapacity:256*sizeof(int)] autorelease];
     [results addObject:fontXSpacings];
     {
-        unsigned char **bytes = [fontCStrings bytes];
+        unsigned char **bytes = (unsigned char **)[fontCStrings bytes];
         for (int i=0; i<256; i++) {
             if (origFontCStrings[i]) {
                 id pixels = [nsfmt(@"%s", origFontCStrings[i]) asXYScaledPixels:scaling];
@@ -51,21 +51,21 @@
     }
 
     {
-        int *bytes = [fontWidths bytes];
+        int *bytes = (int *)[fontWidths bytes];
         for (int i=0; i<256; i++) {
             bytes[i] = origFontWidths[i]*scaling;
         }
     }
 
     {
-        int *bytes = [fontHeights bytes];
+        int *bytes = (int *)[fontHeights bytes];
         for (int i=0; i<256; i++) {
             bytes[i] = origFontHeights[i]*scaling;
         }
     }
 
     {
-        int *bytes = [fontXSpacings bytes];
+        int *bytes = (int *)[fontXSpacings bytes];
         for (int i=0; i<256; i++) {
             bytes[i] = origFontXSpacings[i]*scaling;
         }
