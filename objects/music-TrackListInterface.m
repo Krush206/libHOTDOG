@@ -148,13 +148,13 @@ static unsigned char *button_bottom_right_squared =
 @implementation TrackListInterface
 - (void)handleBackgroundUpdate:(id)event
 {
-    time_t timestamp = [@"." fileModificationTimestamp];
+    time_t timestamp = [(id)@"." fileModificationTimestamp];
     if (timestamp == _timestamp) {
         _seconds++;
         return;
     }
     [self updateArray];
-    _timestamp = [@"." fileModificationTimestamp];
+    _timestamp = [(id)@"." fileModificationTimestamp];
     _seconds = 0;
 }
 - (void)updateArray
