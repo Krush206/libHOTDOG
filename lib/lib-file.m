@@ -582,7 +582,7 @@ exit(0);
     if (stat([self UTF8String], &buf) != 0) {
         return nil;
     }
-    struct tm *tm = localtime(&buf.st_mtim);
+    struct tm *tm = localtime(&buf.st_mtim.tv_sec);
     return [Definitions year:1900+tm->tm_year month:tm->tm_mon+1 day:tm->tm_mday hour:tm->tm_hour minute:tm->tm_min second:tm->tm_sec];
 #else
     struct stat buf;
