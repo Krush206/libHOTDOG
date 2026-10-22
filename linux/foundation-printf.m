@@ -840,7 +840,7 @@ static int _vsnprintf(out_fct_type out, char* buffer, const size_t maxlen, const
       case '@' : {
         id obj = va_arg(va, id);
         id description = [obj description];
-        char* p = [description UTF8String];
+        char* p = (char *)[description UTF8String];
         if (!obj) {
             p = "<null>";
         } else if (!p) {
