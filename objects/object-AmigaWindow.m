@@ -364,7 +364,7 @@ static char *resizeButtonPixels =
 
     id obj;
     obj = [Definitions scaleFont:scaling
-                    :[Definitions arrayOfCStringsForTopazFont]
+                    :(unsigned char **)[Definitions arrayOfCStringsForTopazFont]
                     :[Definitions arrayOfWidthsForTopazFont]
                     :[Definitions arrayOfHeightsForTopazFont]
                     :[Definitions arrayOfXSpacingsForTopazFont]];
@@ -496,10 +496,10 @@ static char *resizeButtonPixels =
     [bitmap drawCString:[_scaledResizeButtonPixels UTF8String] palette:((_buttonDown=='s') ? highlightedPalette : palette) x:r.x+r.w-_scaledResizeButtonWidth y:r.y+r.h-_scaledResizeButtonHeight];
 
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
     id text = [context valueForKey:@"name"];
     if (!text) {
