@@ -56,7 +56,7 @@
 {
     _pixelScaling = scaling;
     id scaledFont = [Definitions scaleFont:scaling
-                        :[Definitions arrayOfCStringsForAtariSTFont]
+                        :(unsigned char **)[Definitions arrayOfCStringsForAtariSTFont]
                         :[Definitions arrayOfWidthsForAtariSTFont]
                         :[Definitions arrayOfHeightsForAtariSTFont]
                         :[Definitions arrayOfXSpacingsForAtariSTFont]];
@@ -402,10 +402,10 @@ if (x+w+4 > monitorX+monitorWidth) {
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r
 {
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
 
 
