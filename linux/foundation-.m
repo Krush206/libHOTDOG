@@ -267,7 +267,7 @@ NSLog(@"SOMETHING'S WRONG!");
     }
     if (_nobjs == _alloc) {
         int newAlloc = _alloc + AUTORELEASEPOOL_ALLOC_SIZE;
-        id newObjs = malloc(sizeof(id)*newAlloc);
+        id *newObjs = malloc(sizeof(id)*newAlloc);
         if (!newObjs) {
 NSLog(@"OUT OF MEMORY! NSAutoreleasePool -addObject: newAlloc %d", newAlloc);
             exit(0);
@@ -1497,7 +1497,7 @@ NSLog(@"NSArray valueForKey:%@", key);
 }
 - (int)findObject:(id)obj
 {
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i++) {
         if ([obj isEqual:elts[i]]) {
             return i;
@@ -1507,7 +1507,7 @@ NSLog(@"NSArray valueForKey:%@", key);
 }
 - (void)dealloc
 {
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i++) {
         [elts[i] autorelease];
     }
@@ -1530,7 +1530,7 @@ NSLog(@"NSArray valueForKey:%@", key);
 - (id)firstObject
 {
     if (_length > 0) {
-        id *elts = _contents;
+        id *elts = (id *)_contents;
         return elts[0];
     }
     return nil;
@@ -1538,14 +1538,14 @@ NSLog(@"NSArray valueForKey:%@", key);
 - (id)lastObject
 {
     if (_length > 0) {
-        id *elts = _contents;
+        id *elts = (id *)_contents;
         return elts[_length-1];
     }
     return nil;
 }
 - (void)removeAllObjects
 {
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i++) {
         [elts[i] autorelease];
     }
@@ -1583,10 +1583,10 @@ NSLog(@"NSArray valueForKey:%@", key);
 - (unsigned int)countByEnumeratingWithState:(NSFastEnumerationState *)enumerationState objects:(id *)stackBuffer count:(unsigned int)length
 {
 //NSLog(@"countByEnumeratingWithState:objects:count: %d", length);
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     if (enumerationState->state == 0) {
         enumerationState->state = 1;
-        enumerationState->mutationsPtr = self;
+        enumerationState->mutationsPtr = (unsigned long *)self;
         enumerationState->itemsPtr = stackBuffer;
         if (_length > length) {
             for (int i=0; i<length; i++) {
@@ -1632,7 +1632,7 @@ NSLog(@"NSArray valueForKey:%@", key);
 - (id)componentsJoinedByStringOld:(id)separator
 {
     separator = [separator description];
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     id str = nil;
     for (int i=0; i<_length; i++) {
         if (!str) {
@@ -1658,7 +1658,7 @@ NSLog(@"NSArray valueForKey:%@", key);
         separatorLength = 0;
     }
 
-    id *elts = _contents;
+    id *elts = (id *)_contents;
 
     id arr = nsarr();
     int totalLength = 0;
@@ -1714,10 +1714,10 @@ NSLog(@"OUT OF MEMORY! NSArray -addObject:");
             free(_contents);
         }
         _alloc = newAlloc;
-        _contents = newElts;
+        _contents = (char *)newElts;
     }
     [obj retain];
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     elts[_length++] = obj;
 }
 - (void)removeObjectAtIndex:(int)i
@@ -1728,7 +1728,7 @@ NSLog(@"OUT OF MEMORY! NSArray -addObject:");
     if (i >= _length) {
         return;
     }
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     [elts[i] autorelease];
     for (int j=i; j<_length-1; j++) {
         elts[j] = elts[j+1];
@@ -1741,7 +1741,7 @@ NSLog(@"OUT OF MEMORY! NSArray -addObject:");
     if (!obj) {
         return;
     }
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i++) {
         if ([elts[i] isEqual:obj]) {
             [self removeObjectAtIndex:i];
@@ -1760,7 +1760,7 @@ NSLog(@"OUT OF MEMORY! NSArray -addObject:");
     if (!obj) {
         return;
     }
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     [obj retain];
     [elts[i] autorelease];
     elts[i] = obj;
@@ -1787,7 +1787,7 @@ NSLog(@"OUT OF MEMORY! NSArray -addObject:");
     if (index >= _length) {
         return nil;
     }
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     return elts[index];
 }
 int qsort_compare_helper(void *a, void *b, void *arg)
@@ -1910,7 +1910,7 @@ NSLog(@"OUT OF MEMORY! NSData -appendBytes:length:");
         }
         memcpy(newContents + _length, bytes, length);
         _alloc = newAlloc;
-        _contents = newContents;
+        _contents = (char *)newContents;
         _length += length;
 NSLog(@"alloc %d", _alloc);
         return;
@@ -1980,7 +1980,7 @@ NSLog(@"alloc %d", _alloc);
 - (void)dealloc
 {
     if (_contents) {
-        id *elts = _contents;
+        id *elts = (id *)_contents;
         for (int i=0; i<_length; i++) {
             [elts[i] autorelease];
         }
@@ -1995,7 +1995,7 @@ NSLog(@"alloc %d", _alloc);
 - (id)copy
 {
     id dict = [[NSMutableDictionary alloc] init];
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         [dict setValue:elts[i+1] forKey:elts[i]];
     }
@@ -2016,7 +2016,7 @@ NSLog(@"alloc %d", _alloc);
 - (id)allKeys
 {
     id arr = [[[NSArray alloc] init] autorelease];
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if (elts[i]) {
             [arr addObject:elts[i]];
@@ -2027,7 +2027,7 @@ NSLog(@"alloc %d", _alloc);
 - (id)allValues
 {
     id arr = [[[NSArray alloc] init] autorelease];
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if (elts[i]) {
             [arr addObject:elts[i+1]];
@@ -2038,7 +2038,7 @@ NSLog(@"alloc %d", _alloc);
 - (id)allKeysAndValues
 {
     id arr = [[[NSArray alloc] init] autorelease];
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if (elts[i]) {
             [arr addObject:elts[i]];
@@ -2056,7 +2056,7 @@ NSLog(@"alloc %d", _alloc);
     if (!key) {
         return;
     }
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if ([elts[i] isEqual:key]) {
             if (val) {
@@ -2102,8 +2102,8 @@ NSLog(@"OUT OF MEMORY! NSDictionary -setValue:forKey:");
             free(_contents);
         }
         _alloc = newAlloc;
-        _contents = newContents;
-        elts = _contents;
+        _contents = (char *)newContents;
+        elts = (id *)_contents;
     }
     [key retain];
     [val retain];
@@ -2116,7 +2116,7 @@ NSLog(@"OUT OF MEMORY! NSDictionary -setValue:forKey:");
     if (!key) {
         return nil;
     }
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if ([elts[i] isEqual:key]) {
             return elts[i+1];
@@ -2132,7 +2132,7 @@ NSLog(@"OUT OF MEMORY! NSDictionary -setValue:forKey:");
     }
     char *keycstr = ((NSObject *)key)->_contents;
 
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if (!elts[i]) {
             continue;
@@ -2157,7 +2157,7 @@ NSLog(@"OUT OF MEMORY! NSDictionary -setValue:forKey:");
     }
     char *keycstr = ((NSObject *)key)->_contents;
 
-    id *elts = _contents;
+    id *elts = (id *)_contents;
     for (int i=0; i<_length; i+=2) {
         if (!elts[i]) {
             continue;
@@ -2312,7 +2312,7 @@ fprintf(HOTDOG_stderr, "ERROR! register_printf_function\n");
 
     id pool = [[NSAutoreleasePool alloc] init];
 
-    nscstr(@"Initialize NSString for forwarding NSConstantString");
+    nscstr("Initialize NSString for forwarding NSConstantString");
     copyMethodsToNSConstantString("NSString");
 
     [pool drain];
