@@ -859,7 +859,7 @@ static char *resizeSelectionVerticalPixels =
 
     id obj;
     obj = [Definitions scaleFont:scaling
-                    :[Definitions arrayOfCStringsForChicagoFont]
+                    :(unsigned char **)[Definitions arrayOfCStringsForChicagoFont]
                     :[Definitions arrayOfWidthsForChicagoFont]
                     :[Definitions arrayOfHeightsForChicagoFont]
                     :[Definitions arrayOfXSpacingsForChicagoFont]];
@@ -1010,10 +1010,10 @@ static char *resizeSelectionVerticalPixels =
     }
 
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
 
     int hasFocus = [context intValueForKey:@"hasFocus"];
