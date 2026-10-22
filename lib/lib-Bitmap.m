@@ -477,49 +477,49 @@ NSLog(@"Out of memory!");
 }
 - (void)useAtariSTFont
 {
-    _fontCStrings = [Definitions arrayOfCStringsForAtariSTFont];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForAtariSTFont];
     _fontWidths = [Definitions arrayOfWidthsForAtariSTFont];
     _fontHeights = [Definitions arrayOfHeightsForAtariSTFont];
     _fontXSpacings = [Definitions arrayOfXSpacingsForAtariSTFont];
 }
 - (void)useTopazFont
 {
-    _fontCStrings = [Definitions arrayOfCStringsForTopazFont];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForTopazFont];
     _fontWidths = [Definitions arrayOfWidthsForTopazFont];
     _fontHeights = [Definitions arrayOfHeightsForTopazFont];
     _fontXSpacings = [Definitions arrayOfXSpacingsForTopazFont];
 }
 - (void)useC64Font
 {
-    _fontCStrings = [Definitions arrayOfCStringsForC64Font];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForC64Font];
     _fontWidths = [Definitions arrayOfWidthsForC64Font];
     _fontHeights = [Definitions arrayOfHeightsForC64Font];
     _fontXSpacings = [Definitions arrayOfXSpacingsForC64Font];
 }
 - (void)useChicagoFont
 {
-    _fontCStrings = [Definitions arrayOfCStringsForChicagoFont];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForChicagoFont];
     _fontWidths = [Definitions arrayOfWidthsForChicagoFont];
     _fontHeights = [Definitions arrayOfHeightsForChicagoFont];
     _fontXSpacings = [Definitions arrayOfXSpacingsForChicagoFont];
 }
 - (void)useMonacoFont
 {
-    _fontCStrings = [Definitions arrayOfCStringsForMonacoFont];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForMonacoFont];
     _fontWidths = [Definitions arrayOfWidthsForMonacoFont];
     _fontHeights = [Definitions arrayOfHeightsForMonacoFont];
     _fontXSpacings = [Definitions arrayOfXSpacingsForMonacoFont];
 }
 - (void)useGenevaFont
 {
-    _fontCStrings = [Definitions arrayOfCStringsForGenevaFont];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForGenevaFont];
     _fontWidths = [Definitions arrayOfWidthsForGenevaFont];
     _fontHeights = [Definitions arrayOfHeightsForGenevaFont];
     _fontXSpacings = [Definitions arrayOfXSpacingsForGenevaFont];
 }
 - (void)useWinSystemFont
 {
-    _fontCStrings = [Definitions arrayOfCStringsForWinSystemFont];
+    _fontCStrings = (unsigned char **)[Definitions arrayOfCStringsForWinSystemFont];
     _fontWidths = [Definitions arrayOfWidthsForWinSystemFont];
     _fontHeights = [Definitions arrayOfHeightsForWinSystemFont];
     _fontXSpacings = [Definitions arrayOfXSpacingsForWinSystemFont];
