@@ -59,7 +59,7 @@
 {
     _pixelScaling = scaling;
     id scaledFont = [Definitions scaleFont:scaling
-                        :[Definitions arrayOfCStringsForTopazFont]
+                        :(unsigned char **)[Definitions arrayOfCStringsForTopazFont]
                         :[Definitions arrayOfWidthsForTopazFont]
                         :[Definitions arrayOfHeightsForTopazFont]
                         :[Definitions arrayOfXSpacingsForTopazFont]];
@@ -246,10 +246,10 @@ NSLog(@"handleRightMouseDown");
 
         id bitmap = [Definitions bitmapWithWidth:1 height:1];
         if (_scaledFont) {
-            [bitmap useFont:[[_scaledFont nth:0] bytes]
-                        :[[_scaledFont nth:1] bytes]
-                        :[[_scaledFont nth:2] bytes]
-                        :[[_scaledFont nth:3] bytes]];
+            [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                        :(int *)[[_scaledFont nth:1] bytes]
+                        :(int *)[[_scaledFont nth:2] bytes]
+                        :(int *)[[_scaledFont nth:3] bytes]];
         }
         id mouseMonitor = [Definitions monitorForX:mouseRootX y:0];
         int mouseMonitorWidth = [mouseMonitor intValueForKey:@"width"];
@@ -600,10 +600,10 @@ if (x+w+3 > monitorX+monitorWidth) {
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r
 {
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
 
     [bitmap setColor:@"white"];
