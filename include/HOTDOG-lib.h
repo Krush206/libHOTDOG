@@ -27,6 +27,7 @@
 
 #ifndef _HOTDOG_LIB_H
 #define _HOTDOG_LIB_H 1
+#import "HOTDOG.h"
 
 @interface NSObject(sxuUWFyVFBdjqGXkCjqoIgTGaANFJhV)
 + (int *)arrayOfXSpacingsForAtariSTFont;
@@ -209,6 +210,8 @@ id nscstrn(char *str, int len);
 BOOL isnsarr(id obj);
 BOOL isnsdict(id obj);
 BOOL isnsstr(id obj);
+void HOTDOG_initialize_stdout(FILE *fp);
+void HOTDOG_initialize(FILE *fp);
 + (id)valueForEnvironmentVariable:(id)key;
 + (void)setValue:(id)val forEnvironmentVariable:(id)key;
 + (id)processID;
