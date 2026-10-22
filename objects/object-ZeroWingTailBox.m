@@ -43,7 +43,7 @@ static void destructiveColorizeFont(id font)
         return;
     }
 
-    unsigned char **bytes = [fontCStrings bytes];
+    unsigned char **bytes = (unsigned char **)[fontCStrings bytes];
     for (int i=0; i<256; i++) {
         destructiveColorize(bytes[i], 'b', '1', 0, 2);
         destructiveColorize(bytes[i], 'b', '2', 2, 6);
@@ -632,7 +632,7 @@ static char *zeroWingPixels3 =
     self = [super init];
     if (self) {
         id obj = [Definitions scaleFont:1
-                        :[Definitions arrayOfCStringsForChicagoFont]
+                        :(unsigned char **)[Definitions arrayOfCStringsForChicagoFont]
                         :[Definitions arrayOfWidthsForChicagoFont]
                         :[Definitions arrayOfHeightsForChicagoFont]
                         :[Definitions arrayOfXSpacingsForChicagoFont]];
@@ -699,10 +699,10 @@ static char *zeroWingPixels3 =
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r
 {
     if (_colorizedFont) {
-        [bitmap useFont:[[_colorizedFont nth:0] bytes]
-                    :[[_colorizedFont nth:1] bytes]
-                    :[[_colorizedFont nth:2] bytes]
-                    :[[_colorizedFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_colorizedFont nth:0] bytes]
+                    :(int *)[[_colorizedFont nth:1] bytes]
+                    :(int *)[[_colorizedFont nth:2] bytes]
+                    :(int *)[[_colorizedFont nth:3] bytes]];
     }
 
     int zeroWingWidth = [Definitions widthForCString:zeroWingPixels1];
