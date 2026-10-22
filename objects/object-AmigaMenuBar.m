@@ -133,7 +133,7 @@ static char *titleBarRaiseButtonPixels =
 {
     _pixelScaling = scaling;
     id scaledFont = [Definitions scaleFont:scaling
-                        :[Definitions arrayOfCStringsForTopazFont]
+                        :(unsigned char **)[Definitions arrayOfCStringsForTopazFont]
                         :[Definitions arrayOfWidthsForTopazFont]
                         :[Definitions arrayOfHeightsForTopazFont]
                         :[Definitions arrayOfXSpacingsForTopazFont]];
@@ -493,10 +493,10 @@ if (x+w+3 > monitorX+monitorWidth) {
 - (void)drawInBitmap:(id)bitmap rect:(Int4)r
 {
     if (_scaledFont) {
-        [bitmap useFont:[[_scaledFont nth:0] bytes]
-                    :[[_scaledFont nth:1] bytes]
-                    :[[_scaledFont nth:2] bytes]
-                    :[[_scaledFont nth:3] bytes]];
+        [bitmap useFont:(unsigned char **)[[_scaledFont nth:0] bytes]
+                    :(int *)[[_scaledFont nth:1] bytes]
+                    :(int *)[[_scaledFont nth:2] bytes]
+                    :(int *)[[_scaledFont nth:3] bytes]];
     }
 
     char *palette = amigaPalette;
