@@ -665,7 +665,7 @@ static void handleClick(id name)
         [cmd runCommandInBackground];
         return;
     } else if ([name isEqual:@"Camera"]) {
-        BOOL exists = [@"/dev/video0" fileExists];
+        BOOL exists = [(id)@"/dev/video0" fileExists];
         if (exists) {
             id cmd = nsarr();
             [cmd addObject:@"ffplay"];
